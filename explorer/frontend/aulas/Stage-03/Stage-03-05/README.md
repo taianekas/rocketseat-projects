@@ -33,7 +33,7 @@ Formulário avalie seu mentor
 
 [Figma](https://www.figma.com/community/file/1256354844988182987)
 
-![PRO2-1](https://user-images.githubusercontent.com/94652702/216670634-566ddffa-3366-42a1-b57c-f44bc2137fc1.png)
+![PRO2-1](https://github.com/taianekas/rocketseat-projects/assets/94652702/eb84a3ad-5336-453f-a8be-b51371cd9296)
 
 ## Aprendizado
 
