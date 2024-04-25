@@ -14,3 +14,9 @@ Além disso, explorei o funcionamento da WEB, compreendendo melhor o que é Fron
 Foi abortado conceitos de HTML e CSS para estruturar conteúdo de forma semântica. Onde aprendei a utilizar a ferramenta Figma para design, aplicando fontes e cores personalizadas nos meus projetos. Além disso, foi ensinado como posicionar e espaçar os elementos usando os conceitos do Box Model e Flexbox do CSS. 
 
 [Principais elementos HTML](https://efficient-sloth-d85.notion.site/Principais-elementos-HTML-da8b750fee5b49f2923fdc35b1c921fc)
+
+## STAGE 03
+
+# Avançando no HTML e CSS
+
+Aprendemos sobre responsividade, para que o nosso projeto se adapte a vários tipos de dispositivos. Trabalharemos com Grid no CSS e faremos transições a animações para deixar o nosso projeto ainda mais robusto para criação de Formulários no HTML e vários tipos de inputs. 
