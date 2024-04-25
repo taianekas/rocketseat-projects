@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+#hero {
+  width: 592px;
+  margin: 0 auto 72px;
+}
+
+img {
+  margin-bottom: 72px;
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 49px;
+  line-height: 56px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+h1 span {
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+span, a {
+  color: #ff9900;
+}
+
+#footer {
+  width: 592px;
+  border-top: 1px solid #ECEFF2;
+  padding-top: 10px;
+  margin: 172px auto 33px;
+}
+
+p, #footer {
+  color: #7d7987;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+#footer a + a {
+  margin-left: 28px;
+}
+
+#balls {
+  position: fixed;
+  bottom: -50px;
+  right: 0;
+}

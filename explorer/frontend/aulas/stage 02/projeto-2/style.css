@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(180deg, rgba(227, 255, 248, 0) 82.08%, rgba(227, 255, 248, 0.38) 100%);
+}
+
+.page {
+  width: 1000px;
+  margin: 65px auto 0;
+  color: #7D7987;
+}
+
+.page nav {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 48px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #7D7987;
+}
+
+nav ul li a:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.page section {
+  width: 489px;
+}
+
+.page section h1 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 49px;
+  margin-bottom: 40px;
+}
+
+.page section h1 span {
+  color: #89C5CC;
+  font-weight: 800;
+}
+
+.page section p {
+  font-size: 14px;
+  line-height: 28px;
+  margin: 40px 0;
+}
+
+.page section button {
+  width: 179px;
+  height: 56px;
+  border-radius: 4px;
+  color: #F9F9F9;
+  background-color: #69B99D;
+  border: none;
+  padding: 14px 32px;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.page section button:hover {
+  cursor: pointer;
+}
+
+.page main {
+  display: flex;
+  align-items: center;
+  gap: 102px;
+  margin-top: 58px;
+}
+
+footer {
+  color: black;
+  font-size: 14px;
+  line-height: 28px;
+  margin-top: 182px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 800;
+  color: black;
+}
+
+.balls {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
