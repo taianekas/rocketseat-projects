@@ -6,7 +6,6 @@ Neste módulo, aprendi conceitos básicos sobre programação que foram muito im
 
 Além disso, explorei o funcionamento da WEB, compreendendo melhor o que é Front-end e Back-end.
 
-
 ## STAGE 02
 
 # Introduçâo ao HTML e CSS
@@ -21,8 +20,6 @@ Foi abortado conceitos de HTML e CSS para estruturar conteúdo de forma semânti
 
 Aprendemos sobre responsividade, para que o nosso projeto se adapte a vários tipos de dispositivos. Trabalharemos com Grid no CSS e faremos transições a animações para deixar o nosso projeto ainda mais robusto para criação de Formulários no HTML e vários tipos de inputs. 
 
-[Micro certificado](https://app.rocketseat.com.br/certificates/13f962d2-5e4f-489b-95f7-77023b83bde6)
-
 ## STAGE 04
 
 # Introdução à programação, lógica e algoritmos com JavaScript
@@ -34,3 +31,26 @@ Neste módulo aprendemos sobre: Variáveis, operadores matemáticos, tipos de da
 # Avançando no JavaScript
 
 Módulo sobre manipular o navegador utilizando a DOM, funções callbacks, recursividade, princípios do Clean Code, ES6 Modules, padrão Factory, injeção de dependências e refatoração de código.
+
+## STAGE 06
+
+# JavaScript antes do framework
+
+Conceitos de SPA (Single Page Application), eventos no JavaScript, assincronismo, promises, conceitos de POO (Programação Orientada a Objetos) como classes, herança e polimorfismo. Também foi abordado imutabilidade, tratamento de erros, localStorage, consumo da API do Github e muito mais.
+
+## STAGE 07
+
+# Git & Github
+Git, uma ferramenta para controle de versões e como utilizar o Github para armazenar o código fonte do seu projeto, além de ser uma ótima estratégia de portfólio para mostrar para empresas e recrutadores.
+
+## STAGE 08
+
+# Introdução ao Node.js
+O que é o Node.js como ele funciona e suas vantagens. Construiremos uma API completa utilizando Node.js e Express. Utilizaremos o Insomnia para cadastrar nossas rotas e verificar os status codes das mesmas. Criaremos um banco de dados utilizando SQLite, manipularemos o nosso DB utilizando a ferramenta Beekeper Studio juntamente com o Query Builder Knex.js.
+
+
+## MICRO CERTIFICADOS
+
+[HTML e CSS](https://app.rocketseat.com.br/certificates/13f962d2-5e4f-489b-95f7-77023b83bde6)
+[JavaScript](https://app.rocketseat.com.br/certificates/d07aca30-7c45-495d-85a8-c366f918f66e)
+[Git & Github básico](https://app.rocketseat.com.br/certificates/0b745a09-5ae2-4d1b-b7c4-850e5078e701)

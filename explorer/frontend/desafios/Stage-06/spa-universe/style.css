@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --ff-page: 'Roboto', sans-serif;
+
+  --WHITE: hsla(0, 0%, 100%, 1);
+  --GRAY_100: hsla(240, 9%, 89%, 1);
+  --GRAY_200: hsla(240, 7%, 78%, 1);
+  --CYAN_700: hsla(194, 97%, 31%, 1);
+}
+
+body {
+  font-family: var(--ff-page);
+  font-size: 1.6rem;
+  background-image: url(./assets/mountains-universe-1.png);
+  background-repeat: no-repeat;
+  width: 37.5rem;
+  height: 100vh;
+  background-position: top center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#app {
+  width: 75%;
+  margin: 0 auto;
+}
+
+nav {
+  width: 37.5rem;
+  height: 12.2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 1rem;
+}
+
+nav svg {
+  width: 3rem;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--GRAY_200);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--WHITE);
+  font-weight: 700;
+}
+
+a:target {
+  color: var(--WHITE);
+  font-weight: 700;
+}
+
+a:hover {
+  color: var(--WHITE);
+  font-weight: 700;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 6rem;
+  color: var(--GRAY_100);
+  margin-bottom: 1.6rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.9rem;
+  color: var(--GRAY_100);
+}
+
+button {
+  width: 19.5rem;
+  height: 4.8rem;
+  border: 2px solid var(--WHITE);
+  border-radius: .5em;
+  font-family: var(--ff-page);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  padding: 1.2 3.2rem;
+  text-transform: uppercase;
+  color: var(--WHITE);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button:hover {
+  background-color: var(--WHITE);
+  color: var(--CYAN_700);
+}
+
+#home,
+#page-404 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 18rem auto;
+  gap: 2.4rem;
+}
+
+.texting-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  margin: 6.3rem 10.2rem;
+}
+
+@media (min-width: 688px)  {
+
+  body {
+    width: 100%;
+  }
+
+  #home,
+  #page-404 {
+    width: 68rem;
+  }
+}
+
+
+@media (min-width: 900px) {
+  nav {
+    width: 128rem;
+    padding: 4rem 7.2rem;
+    gap: 3.2rem;
+  }
+
+  nav svg {
+    width: 5rem;
+  }
+
+  nav ul li a {
+    font-size: 2.4rem;
+    line-height: 2.2rem;
+    gap: 3.2rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+    line-height: 6rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  #home,
+  #page-404 {
+    width: 75%;
+    margin: 18rem auto;
+  }
+
+  .texting-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    margin: 6.3rem 10.2rem;
+  }
+
+}
