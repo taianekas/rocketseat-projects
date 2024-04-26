@@ -26,6 +26,11 @@ Aprendemos sobre responsividade, para que o nosso projeto se adapte a vários ti
 ## STAGE 04
 
 # Introdução à programação, lógica e algoritmos com JavaScript
+
 Neste módulo aprendemos sobre: Variáveis, operadores matemáticos, tipos de dados no JavaScript, operadores comparativos, estruturas de repetição e condicionais, Arrays e aprenderemos sobre funções no JavaScript e como utilizá-las.
 
+## STAGE 05
 
+# Avançando no JavaScript
+
+Módulo sobre manipular o navegador utilizando a DOM, funções callbacks, recursividade, princípios do Clean Code, ES6 Modules, padrão Factory, injeção de dependências e refatoração de código.
