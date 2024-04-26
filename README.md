@@ -16,9 +16,9 @@ A trilha Explorer da Rocketseat é voltada para quem está começando ou quer ap
 
 ### Projetos:
 
-- **Projeto 1:** Aplicação simples de lista de tarefas usando Node.js e Express.
-- **Projeto 2:** Aplicação de chat em tempo real com Socket.io.
-- **Projeto 3:** Interface web responsiva utilizando React e styled-components.
+- **Projeto 1:** 
+- **Projeto 2:** 
+- **Projeto 3:** 
 
 ## Trilha Ignite
 
@@ -34,11 +34,7 @@ A trilha Ignite é mais avançada e focada em tecnologias modernas e práticas p
 
 ### Projetos:
 
-- **Projeto 1:** Aplicativo mobile de controle financeiro com React Native.
-- **Projeto 2:** Dashboard avançado utilizando React, TypeScript e APIs REST.
-- **Projeto 3:** API robusta de e-commerce com Node.js, GraphQL e MongoDB.
-
-## Como Utilizar os Projetos
-
-Cada diretório neste repositório corresponde a um projeto específico desenvolvido durante o curso feitos durante as aulas e desafios propostos. Para executar qualquer um desses projetos em sua própria máquina:
+- **Projeto 1:** 
+- **Projeto 2:** 
+- **Projeto 3:** 
 
