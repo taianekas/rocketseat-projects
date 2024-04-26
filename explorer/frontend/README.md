@@ -21,6 +21,8 @@ Foi abortado conceitos de HTML e CSS para estruturar conteúdo de forma semânti
 
 Aprendemos sobre responsividade, para que o nosso projeto se adapte a vários tipos de dispositivos. Trabalharemos com Grid no CSS e faremos transições a animações para deixar o nosso projeto ainda mais robusto para criação de Formulários no HTML e vários tipos de inputs. 
 
+[Micro certificado](https://app.rocketseat.com.br/certificates/13f962d2-5e4f-489b-95f7-77023b83bde6)
+
 ## STAGE 04
 
 # Introdução à programação, lógica e algoritmos com JavaScript
