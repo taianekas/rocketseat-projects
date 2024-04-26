@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --ff-application: 'Roboto', sans-serif;
+
+  --bg-c-body: hsla(230, 78%, 8%, 1);
+  --bg-c-card: hsla(0, 0%, 100%, 1);
+  --bg-c-input: hsla(212, 23%, 89%, 1);
+  --bg-c-button: hsla(194, 97%, 31%, 1);
+  --bg-c-button-hover: rgb(9, 99, 126);
+  --bg-c-error: hsla(0, 86%, 59%, 1);
+  --border-c-input: hsla(210, 9%, 31%, 0.3);
+  --border-outline-input: hsla(194, 97%, 31%, 1);
+  --fc-label: hsla(170, 100%, 14%, 1);
+  --fc-input: hsla(210, 11%, 15%, 1);
+  --fc-placehoulder-input: hsla(210, 9%, 31%, 0.5);
+  --fc-button: hsla(0, 0%, 100%, 1);
+  --fc-heading: hsla(194, 68%, 15%, 1);
+
+  --fs-application: 1.6rem;
+  --fs-heading: 3.2rem;
+  --fs-label: 1.4rem;
+
+}
+
+body, button, input {
+  font-size: var(--fs-application);
+  line-height: 2rem;
+  font-family: var(--ff-application);
+}
+
+body {
+  background-color: var(--bg-c-body);
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background-color: var(--bg-c-card);
+  padding: 4.8rem 2.4rem 6.4rem;
+  max-width: 31rem;
+  border-radius: .6rem;
+}
+
+form {
+  max-width: 30rem;
+}
+
+.title {
+  font-size: var(--fs-heading);
+  color: var(--fc-heading);
+  line-height: 4rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+form label {
+  font-size: var(--fs-label);
+  line-height: 1.8rem;
+  color: var(--fc-label);
+  margin-bottom: .8rem;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  height: 5.2rem;
+  padding: 1.6rem;
+  color: var(--fc-input);
+  background-color: var(--bg-c-input);
+  border: 1px solid var(--border-c-input);
+  border-radius: .4rem;
+}
+
+form input:focus {
+  outline: 2px solid var(--border-outline-input);
+}
+
+form input::placeholder {
+  color: var(--fc-placehoulder-input);
+}
+
+.card button {
+  width: 100%;
+  height: 5.2rem;
+  background-color: var(--bg-c-button);
+  border: none;
+  color: var(--fc-button);
+  font-weight: bold;
+  padding: 1.6rem;
+  border-radius: .4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 3.2rem;
+  cursor: pointer;
+  transition: background 1s;
+}
+
+.card button:hover {
+  background-color: var(--bg-c-button-hover);
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: -3.6rem;
+  right: -10rem;
+  cursor: pointer;
+  
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+  background-color: transparent;
+}
+
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  background-color: var(--bg-c-error);
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: .8rem 0;
+  font-weight: bold;
+  color: var(--fc-button);
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (min-width: 425px) {
+  .card {
+    padding: 4.8rem 6.4rem 6.4rem;
+    max-width: 42.8rem;
+  }
+
+  .modal button {
+    right: -13rem;
+  }
+}
