@@ -20,3 +20,10 @@ Foi abortado conceitos de HTML e CSS para estruturar conteúdo de forma semânti
 # Avançando no HTML e CSS
 
 Aprendemos sobre responsividade, para que o nosso projeto se adapte a vários tipos de dispositivos. Trabalharemos com Grid no CSS e faremos transições a animações para deixar o nosso projeto ainda mais robusto para criação de Formulários no HTML e vários tipos de inputs. 
+
+## STAGE 04
+
+# Introdução à programação, lógica e algoritmos com JavaScript
+Neste módulo aprendemos sobre: Variáveis, operadores matemáticos, tipos de dados no JavaScript, operadores comparativos, estruturas de repetição e condicionais, Arrays e aprenderemos sobre funções no JavaScript e como utilizá-las.
+
+
