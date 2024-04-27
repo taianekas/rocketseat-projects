@@ -51,6 +51,7 @@ O que é o Node.js como ele funciona e suas vantagens. Construiremos uma API com
 
 ## MICRO CERTIFICADOS
 
-[HTML e CSS](https://app.rocketseat.com.br/certificates/13f962d2-5e4f-489b-95f7-77023b83bde6)
-[JavaScript](https://app.rocketseat.com.br/certificates/d07aca30-7c45-495d-85a8-c366f918f66e)
-[Git & Github básico](https://app.rocketseat.com.br/certificates/0b745a09-5ae2-4d1b-b7c4-850e5078e701)
+[HTML e CSS](https://app.rocketseat.com.br/certificates/13f962d2-5e4f-489b-95f7-77023b83bde6)<br>
+[JavaScript](https://app.rocketseat.com.br/certificates/d07aca30-7c45-495d-85a8-c366f918f66e)<br>
+[Git & Github básico](https://app.rocketseat.com.br/certificates/0b745a09-5ae2-4d1b-b7c4-850e5078e701)<br>
+[Backend](https://app.rocketseat.com.br/certificates/48ca7e0a-858c-4e49-9c6f-41f7cb2e03e2)<br>
