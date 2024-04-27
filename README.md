@@ -16,9 +16,16 @@ A trilha Explorer da Rocketseat é voltada para quem está começando ou quer ap
 
 ### Projetos:
 
-- **Projeto 1:** 
-- **Projeto 2:** 
-- **Projeto 3:** 
+- **Stage 02:** [Desáfios - HTML e CSS](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-02)
+- **Stage 03:** [Desáfios - HTML e CSS](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-03)
+- **Stage 04:** [Desáfios - HTML e CSS](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-04)
+- **Stage 05:** [Desáfios - JavaScript](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-05)
+- **Stage 06:** [Desáfios - JavaScript](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-06)
+- **Stage 08:** [Desáfios - Node.js](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/backend/desafios/Stage-08/rocket-movies)
+- **Stage 09:** [Desáfios - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-09)
+- **...** 
+
+[👩🏼‍🎓 Certificado Explorer](https://app.rocketseat.com.br/certificates/077701a5-be1c-4597-aa46-4e5e23499d53)
 
 ## Trilha Ignite
 
@@ -33,8 +40,4 @@ A trilha Ignite é mais avançada e focada em tecnologias modernas e práticas p
 5. **GraphQL:** Uso avançado de GraphQL em aplicações modernas.
 
 ### Projetos:
-
-- **Projeto 1:** 
-- **Projeto 2:** 
-- **Projeto 3:** 
 
