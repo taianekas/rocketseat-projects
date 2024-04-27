@@ -17,8 +17,9 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
-![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
+[![Node](https://img.shields.io/badge/Node.js-v14.17.0-green)](https://nodejs.org/)&nbsp;
+[![Knex](https://img.shields.io/badge/Knex.js-v0.21.21-blue)](https://knexjs.org/)&nbsp;
+[![Express](https://img.shields.io/badge/Express.js-v4.17.1-yellow)](https://expressjs.com/)&nbsp;
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
 
 
@@ -43,12 +44,6 @@ O desáfio é criar uma aplicação em Node.js onde o usuário cadastra um filme
 | avatar do usuário |  | id do usuário |  |  |
 | data de criação |  | data de criação |  |  |
 | data de edição |  | data de edição |  |  |
-
-
-## Tecnologias Utilizadas
-- Node.js
-- Express
-- Knex
 
 ---
 
