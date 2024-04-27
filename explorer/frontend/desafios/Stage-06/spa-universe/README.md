@@ -30,16 +30,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
 
-## Instalação
-
-Instale meu projeto com npm
-
-```bash
-  git clone git@github.com:taianekarine/Explorer-Stage-06-Desafio-Fase-01.1.git
-  npm init -y
-  npm start
-```
-
 ## 💻 Projeto
 
 - ES Modules
