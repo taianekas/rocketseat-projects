@@ -6,7 +6,9 @@ import { Avatar } from './Avatar'
 import { useState } from 'react'
 
 export function Post ({ author, publishedAt, content}) {
-  const [comments, setComments] = useState([1, 2])
+  const [comments, setComments] = useState(['Post muito bacana!'])
+  const [newCommentText, setNewCommentText] = useState([''])
+
 
   const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH'h'mm", {locale: ptBR})
   const publihsedDateRelativeToNow = formatDistanceToNow(publishedAt, {
@@ -16,8 +18,14 @@ export function Post ({ author, publishedAt, content}) {
 
   function handleCreateNewComment(event) {
     event.preventDefault()
-    console.log('funcionou')
-    setComments([...comments, comments.length + 1]);
+
+    setComments([...comments, newCommentText])
+    setNewCommentText('')
+
+  }
+
+  function handleNewCommentChange (event) {
+    setNewCommentText(event.target.value)
   }
 
   return (
@@ -57,7 +65,12 @@ export function Post ({ author, publishedAt, content}) {
       <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
-        <textarea placeholder='Deixe seu comentário'/>
+        <textarea 
+          onChange={handleNewCommentChange} 
+          value={newCommentText}
+          placeholder='Deixe seu comentário' 
+          name='comment' 
+        />
 
         <footer>
           <button type='submit'> Publicar </button>
@@ -71,7 +84,6 @@ export function Post ({ author, publishedAt, content}) {
 
             return <Comment content = {comment}/>
           })
-        
         }
 
       </div>
