@@ -25,7 +25,7 @@ export function TaskList ({ text, isChecked }: TaskListProps) {
         </p>
       </label>
 
-      <button>
+      <button type='submit'>
         <Trash size={17} color='#808080' />
       </button>
     </div>
