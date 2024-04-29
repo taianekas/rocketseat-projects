@@ -31,6 +31,6 @@ body, input {
 }
 
 body {
-  background-color: var(--gray-700);
+  background-color: var(--gray-600);
   color: var(--gray-300);
 }
