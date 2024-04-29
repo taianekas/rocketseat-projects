@@ -28,9 +28,9 @@
 body, input {
   font-size: 1.6rem;
   font-family: "Inter", sans-serif;
+  color: var(--gray-300);
 }
 
 body {
   background-color: var(--gray-600);
-  color: var(--gray-300);
 }
