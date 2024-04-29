@@ -13,7 +13,10 @@ export function App() {
 
       <main>
         <Input />
-        <Task />
+        <Task 
+          countCreatedTasks={5}
+          countCompletedTasks={5}
+        />
       </main>
     </div>
   )

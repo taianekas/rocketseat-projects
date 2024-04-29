@@ -8,6 +8,7 @@
   padding: 1.6rem;
   border-radius: .8rem;
   display: flex;
+  justify-content: space-between;
 }
 
 .containerWithTasks + .containerWithTasks {
@@ -74,6 +75,7 @@
   border-radius: 4px;
 
   padding: 5px 4px 2px 4px;
+  cursor: pointer;
   
   transition: 0.2s background-color;
 }
