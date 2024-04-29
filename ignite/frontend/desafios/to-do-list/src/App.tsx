@@ -2,6 +2,7 @@ import './global.css'
 import styles from './App.module.css'
 import Logo from './assets/logo.svg'
 import { Input } from './Input'
+import { Task } from './Task'
 
 export function App() {
   return (
@@ -12,6 +13,7 @@ export function App() {
 
       <main>
         <Input />
+        <Task />
       </main>
     </div>
   )
