@@ -1,0 +1,40 @@
+.content {
+  width: 100%;
+  margin-top: 6.5rem;
+}
+
+.taskStatus {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2.4rem;
+}
+
+.taskStatus p {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 140%;
+  display: flex;
+  gap: .8rem;
+}
+
+.taskStatus p span {
+  width: 2.5rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  text-align: center;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+}
+
+.createdTasks {
+  color: var(--blue);
+}
+
+.completedTasks {
+  color: var(--purple);
+}
+
+.contentTasks {
+  width: 73.6rem;
+  margin: 0 auto;
+}
