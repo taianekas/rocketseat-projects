@@ -3,8 +3,16 @@ import styles from './App.module.css'
 import Logo from './assets/logo.svg'
 import { Input } from './Input'
 import { Task } from './Task'
+import { TaskListProps } from './TaskList'
+import { useState } from 'react'
 
 export function App() {
+  const [tasks, setTasks] = useState<TaskListProps[]>([])
+
+  function handleAddTask(task: TaskListProps) {
+    setTasks((prevTasks) => [...prevTasks, task])
+  }
+
   return (
     <div>
       <header className = {styles.header}>
@@ -12,10 +20,11 @@ export function App() {
       </header>
 
       <main>
-        <Input />
+        <Input onAddTask={handleAddTask}/>
         <Task 
-          countCreatedTasks={5}
-          countCompletedTasks={5}
+          countCreatedTasks={tasks.length}
+          countCompletedTasks={tasks.filter(task => task.isChecked).length}
+          task = {tasks}
         />
       </main>
     </div>
