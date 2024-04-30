@@ -2,15 +2,22 @@ import styles from './TaskList.module.css'
 import { Trash, Check } from '@phosphor-icons/react'
 
 export interface TaskListProps {
-  id?: string
+  id: string
   text: string
   isChecked: boolean
+  onDelete: (id:string) => void
 }
 
-export function TaskList ({ text, isChecked }: TaskListProps) {
+export function TaskList ({ id, text, isChecked, onDelete }: TaskListProps) {
 
   const checkboxCheckedClassname = isChecked ? styles['checkbox-checked'] : styles['checkbox-unchecked']
   const paragraphCheckedClassname = isChecked ? styles['paragraph-checked'] : ''
+
+  function handleRemoveTask() {
+    onDelete(id)
+  }
+
+  
 
   return (
     <div className = {styles.containerWithTasks}>
@@ -25,7 +32,7 @@ export function TaskList ({ text, isChecked }: TaskListProps) {
         </p>
       </label>
 
-      <button type='submit'>
+      <button type='submit' onClick={handleRemoveTask}>
         <Trash size={17} color='#808080' />
       </button>
     </div>
