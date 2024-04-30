@@ -9,7 +9,7 @@ import { useState } from 'react'
 export function App() {
   const [tasks, setTasks] = useState<TaskListProps[]>([])
 
-  function handleAddTask(task: TaskListProps) {
+  function addTask(task: TaskListProps) {
     setTasks((prevTasks) => [...prevTasks, task])
   }
   
@@ -28,7 +28,7 @@ export function App() {
       </header>
 
       <main>
-        <Input onAddTask={handleAddTask}/>
+        <Input onAddTask={addTask}/>
         <Task 
           countCreatedTasks={tasks.length}
           countCompletedTasks={tasks.filter(task => task.isChecked).length}
