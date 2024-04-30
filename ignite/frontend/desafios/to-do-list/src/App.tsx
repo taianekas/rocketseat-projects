@@ -21,6 +21,7 @@ export function App() {
     setTasks(idTask)
   }
 
+
   return (
     <div>
       <header className = {styles.header}>
@@ -31,7 +32,6 @@ export function App() {
         <Input onAddTask={addTask}/>
         <Task 
           countCreatedTasks={tasks.length}
-          countCompletedTasks={tasks.filter(task => task.isChecked).length}
           task = {tasks}
           getIdTask = {getIdTask}
         />
