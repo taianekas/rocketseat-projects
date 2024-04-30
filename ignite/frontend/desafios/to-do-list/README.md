@@ -1,8 +1,8 @@
 <p style="text-align:center">
   <img src='./src//assets/logo.svg' alt='Imagem To-do' />
-</>
+</P>
 
-<p align="center">
+<p style="text-align:center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-conceitos">Conceitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
