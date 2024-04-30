@@ -2,6 +2,7 @@ import styles from './Task.module.css'
 import { Empty } from './Empty'
 import { TaskList } from './TaskList'
 import { TaskListProps } from './TaskList'
+import { useState } from 'react'
 
 export interface TaskProps {
   countCreatedTasks: number,
@@ -11,6 +12,7 @@ export interface TaskProps {
 }
 
 export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}: TaskProps ) {
+  const [, setTasks] = useState<TaskListProps[]>([])
 
   function deleteTask (taskId: string) {
     task.filter( item => {
@@ -18,6 +20,17 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}
     })
 
     getIdTask(taskId)
+  }
+
+  function handleToggleTask({ id, value }: { id: string; value: boolean }) {
+    const newTasks = task.map((item) => {
+      if (item.id === id) {
+        item.isChecked = value;
+      }
+      return item;
+    })
+
+    setTasks(newTasks)
   }
 
   return (
@@ -43,6 +56,7 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}
               text = {item.text}
               isChecked = {item.isChecked}
               onDelete={() => deleteTask (item.id)}
+              handleToggleTask= {handleToggleTask}
             />
           ))
           ) : <Empty />

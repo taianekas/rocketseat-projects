@@ -6,23 +6,25 @@ export interface TaskListProps {
   text: string
   isChecked: boolean
   onDelete: (id:string) => void
+  handleToggleTask: (data: { id: string; value: boolean }) => void 
 }
 
-export function TaskList ({ id, text, isChecked, onDelete }: TaskListProps) {
-
-  const checkboxCheckedClassname = isChecked ? styles['checkbox-checked'] : styles['checkbox-unchecked']
-  const paragraphCheckedClassname = isChecked ? styles['paragraph-checked'] : ''
-
+export function TaskList ({ id, text, isChecked, onDelete, handleToggleTask }: TaskListProps) {
   function handleRemoveTask() {
     onDelete(id)
   }
 
-  
+  function handleToggle() {
+    handleToggleTask({id, value: !isChecked} );
+  }
+
+  const checkboxCheckedClassname = isChecked ? styles['checkbox-checked'] : styles['checkbox-unchecked']
+  const paragraphCheckedClassname = isChecked ? styles['paragraph-checked'] : ''
 
   return (
     <div className = {styles.containerWithTasks}>
-      <label htmlFor='checkbox' >
-        <input readOnly type='checkbox' checked={isChecked} />
+      <label htmlFor={`checkbox-${id}`} >
+        <input id={`checkbox-${id}`} readOnly type='checkbox' checked={isChecked} onClick={handleToggle}/>
         <span className={`${styles.checkBox} ${checkboxCheckedClassname}`}>
           {isChecked && <Check size={17} />}
         </span>
