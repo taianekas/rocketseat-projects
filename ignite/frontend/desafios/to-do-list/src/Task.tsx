@@ -7,17 +7,17 @@ export interface TaskProps {
   countCreatedTasks: number,
   countCompletedTasks: number,
   task: TaskListProps[]
-  onDeleteTask: (id: string) => void
+  getIdTask: (id: string) => void
 }
 
-export function Task ({ countCreatedTasks, countCompletedTasks, task, onDeleteTask}: TaskProps ) {
+export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}: TaskProps ) {
 
   function deleteTask (taskId: string) {
     task.filter( item => {
       return item.id !== taskId
     })
 
-    onDeleteTask(taskId)
+    getIdTask(taskId)
   }
 
   return (

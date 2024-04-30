@@ -13,12 +13,12 @@ export function App() {
     setTasks((prevTasks) => [...prevTasks, task])
   }
   
-  function handleRemoveTask(id: string) {
-    const taskWithoutDeletedOne = tasks.filter( item => {
+  function getIdTask(id: string) {
+    const idTask = tasks.filter( item => {
       return item.id !== id
     })
 
-    setTasks(taskWithoutDeletedOne)
+    setTasks(idTask)
   }
 
   return (
@@ -33,7 +33,7 @@ export function App() {
           countCreatedTasks={tasks.length}
           countCompletedTasks={tasks.filter(task => task.isChecked).length}
           task = {tasks}
-          onDeleteTask = {handleRemoveTask}
+          getIdTask = {getIdTask}
         />
       </main>
     </div>
