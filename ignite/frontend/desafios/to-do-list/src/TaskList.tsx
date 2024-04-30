@@ -6,16 +6,16 @@ export interface TaskListProps {
   text: string
   isChecked: boolean
   onDelete: (id:string) => void
-  handleToggleTask: (data: { id: string; value: boolean }) => void 
+  onToggle: (data: { id: string; value: boolean }) => void 
 }
 
-export function TaskList ({ id, text, isChecked, onDelete, handleToggleTask }: TaskListProps) {
+export function TaskList ({ id, text, isChecked, onDelete, onToggle }: TaskListProps) {
   function handleRemoveTask() {
     onDelete(id)
   }
 
   function handleToggle() {
-    handleToggleTask({id, value: !isChecked} );
+    onToggle({id, value: !isChecked} );
   }
 
   const checkboxCheckedClassname = isChecked ? styles['checkbox-checked'] : styles['checkbox-unchecked']

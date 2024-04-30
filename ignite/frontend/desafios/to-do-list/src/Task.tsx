@@ -6,13 +6,13 @@ import { useState } from 'react'
 
 export interface TaskProps {
   countCreatedTasks: number,
-  countCompletedTasks: number,
-  task: TaskListProps[]
-  getIdTask: (id: string) => void
+  task: TaskListProps[],
+  getIdTask: (id: string) => void,
 }
 
-export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}: TaskProps ) {
+export function Task ({ countCreatedTasks, task, getIdTask}: TaskProps ) {
   const [, setTasks] = useState<TaskListProps[]>([])
+  const [newState, setNewState] = useState(0)
 
   function deleteTask (taskId: string) {
     task.filter( item => {
@@ -20,6 +20,10 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}
     })
 
     getIdTask(taskId)
+
+    setNewState((state) => {
+      return state - 1
+    })
   }
 
   function handleToggleTask({ id, value }: { id: string; value: boolean }) {
@@ -30,6 +34,8 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}
       return item;
     })
 
+    const newCount = task.filter(item => item.isChecked).length
+    setNewState(newCount)
     setTasks(newTasks)
   }
 
@@ -42,7 +48,7 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}
         </p>
         <p className = {styles.completedTasks}>
           Concluídas
-          <span>{countCompletedTasks}</span>
+          <span>{newState}</span>
         </p>
       </div>
       <div className = {styles.contentTasks}>
@@ -56,7 +62,7 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}
               text = {item.text}
               isChecked = {item.isChecked}
               onDelete={() => deleteTask (item.id)}
-              handleToggleTask= {handleToggleTask}
+              onToggle= {handleToggleTask}
             />
           ))
           ) : <Empty />
