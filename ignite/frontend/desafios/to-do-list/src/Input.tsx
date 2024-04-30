@@ -22,7 +22,9 @@ export function Input ({ onAddTask  }: InputProps) {
     const newTask:TaskListProps = {
       id: uuidv4(),
       text: inputValue,
-      isChecked: true
+      isChecked: false,
+      onDelete: () => {},
+      onToggle: () => {},
     }
 
     onAddTask(newTask)
