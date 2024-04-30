@@ -9,16 +9,16 @@ import { useState } from 'react'
 export function App() {
   const [tasks, setTasks] = useState<TaskListProps[]>([])
 
-  function handleAddTask(task: TaskListProps) {
+  function addTask(task: TaskListProps) {
     setTasks((prevTasks) => [...prevTasks, task])
   }
   
-  function handleRemoveTask(id: string) {
-    const taskWithoutDeletedOne = tasks.filter( item => {
+  function getIdTask(id: string) {
+    const idTask = tasks.filter( item => {
       return item.id !== id
     })
 
-    setTasks(taskWithoutDeletedOne)
+    setTasks(idTask)
   }
 
   return (
@@ -28,12 +28,12 @@ export function App() {
       </header>
 
       <main>
-        <Input onAddTask={handleAddTask}/>
+        <Input onAddTask={addTask}/>
         <Task 
           countCreatedTasks={tasks.length}
           countCompletedTasks={tasks.filter(task => task.isChecked).length}
           task = {tasks}
-          onDeleteTask = {handleRemoveTask}
+          getIdTask = {getIdTask}
         />
       </main>
     </div>

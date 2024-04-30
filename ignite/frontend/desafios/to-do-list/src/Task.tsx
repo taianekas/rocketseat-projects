@@ -2,22 +2,35 @@ import styles from './Task.module.css'
 import { Empty } from './Empty'
 import { TaskList } from './TaskList'
 import { TaskListProps } from './TaskList'
+import { useState } from 'react'
 
 export interface TaskProps {
   countCreatedTasks: number,
   countCompletedTasks: number,
   task: TaskListProps[]
-  onDeleteTask: (id: string) => void
+  getIdTask: (id: string) => void
 }
 
-export function Task ({ countCreatedTasks, countCompletedTasks, task, onDeleteTask}: TaskProps ) {
+export function Task ({ countCreatedTasks, countCompletedTasks, task, getIdTask}: TaskProps ) {
+  const [, setTasks] = useState<TaskListProps[]>([])
 
   function deleteTask (taskId: string) {
     task.filter( item => {
       return item.id !== taskId
     })
 
-    onDeleteTask(taskId)
+    getIdTask(taskId)
+  }
+
+  function handleToggleTask({ id, value }: { id: string; value: boolean }) {
+    const newTasks = task.map((item) => {
+      if (item.id === id) {
+        item.isChecked = value;
+      }
+      return item;
+    })
+
+    setTasks(newTasks)
   }
 
   return (
@@ -43,6 +56,7 @@ export function Task ({ countCreatedTasks, countCompletedTasks, task, onDeleteTa
               text = {item.text}
               isChecked = {item.isChecked}
               onDelete={() => deleteTask (item.id)}
+              handleToggleTask= {handleToggleTask}
             />
           ))
           ) : <Empty />
