@@ -8,7 +8,7 @@ export function Counter() {
         <Minus weight="bold" />
       </Button>
 
-      <p>5</p>
+      <p>{'1'}</p>
 
       <Button>
         <Plus weight="bold" />
