@@ -10,7 +10,6 @@ export const Container = styled.div`
   justify-content: space-between;
   gap: 0.4rem;
   padding: 0.8rem;
-  flex: 1;
 
   p {
     font-size: 1.6rem;

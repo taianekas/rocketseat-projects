@@ -18,6 +18,16 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: 0 0 0 2px ${(props) => props.theme.YELLOW[400]};
   }
 
+  ::-webkit-scrollbar-thumb {
+    background: transparent; /* Cor do thumb (alça) do scrollbar */
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Cor do fundo do scrollbar */
+  }
+  ::-webkit-scrollbar {
+    width: 1px; /* Largura do scrollbar */
+  }
+
   body, input, button {
     font-family: "Roboto", sans-serif;
   }
