@@ -1,7 +1,8 @@
-import { Container, Icon, Intro } from './styles'
+import { Container, Icon, Intro, Menu } from './styles'
 import imgIntro from '../../assets/coffee-intro.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
-
+import { Catalog } from '../../components/Catalog'
+import { CoffeeList } from '../../data'
 export function Home() {
   return (
     <Container>
@@ -47,6 +48,21 @@ export function Home() {
 
         <img src={imgIntro} alt="" />
       </Intro>
+      <Menu>
+        {CoffeeList.map((items) => {
+          const tag = items.tag.map((tags) => tags.title)
+          return (
+            <Catalog
+              key={items.id}
+              tag={tag}
+              name={items.name}
+              description={items.description}
+              value={items.value}
+              image={items.image}
+            />
+          )
+        })}
+      </Menu>
     </Container>
   )
 }
