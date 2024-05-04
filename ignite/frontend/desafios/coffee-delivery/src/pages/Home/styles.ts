@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  margin-top: 5.4rem;
+  overflow-y: scroll;
 `
 
 export const Intro = styled.header`
@@ -73,4 +73,11 @@ export const Icon = styled.span<StatusProps>`
   justify-content: center;
   color: ${(props) => props.theme.WHITE};
   background-color: ${(props) => BG_COLORS[props.statuscolor]};
+`
+
+export const Menu = styled.main`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-bottom: 15.7rem;
 `
