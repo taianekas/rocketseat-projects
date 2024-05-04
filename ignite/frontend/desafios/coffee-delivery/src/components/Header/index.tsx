@@ -1,7 +1,7 @@
 import { Container, Navbar, Locale } from './styles'
 import coffeeLogo from '../../assets/coffee-delivery-logo.svg'
 import { MapPin } from '@phosphor-icons/react'
-import { Cart } from './components/Cart'
+import { Cart } from '../Cart'
 
 export function Header() {
   return (
