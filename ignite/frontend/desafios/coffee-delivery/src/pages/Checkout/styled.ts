@@ -13,8 +13,7 @@ export const Container = styled.main`
 export const CheckoutContent = styled.aside`
   background-color: ${(props) => props.theme.GRAY[200]};
   width: 100%;
-  height: fit-content;
-  max-height: 100vh;
+  max-height: 80rem;
   border-radius: 6px 44px 6px 44px;
   padding: 4rem;
   display: flex;
@@ -23,8 +22,7 @@ export const CheckoutContent = styled.aside`
 `
 export const CoffeeList = styled.div`
   padding-top: 1rem;
-  height: fit-content;
-  max-height: 62rem;
+  max-height: 52rem;
   overflow: scroll;
 `
 
