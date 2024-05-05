@@ -15,7 +15,6 @@ export const Title = styled.div`
   p {
     color: ${(props) => props.theme.GRAY[800]};
     display: flex;
-    align-items: center;
     gap: 0.8rem;
   }
 

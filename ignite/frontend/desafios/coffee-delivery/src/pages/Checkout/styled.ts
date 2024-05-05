@@ -58,3 +58,77 @@ export const ConfirmOrder = styled.button`
     background-color: ${(props) => props.theme.YELLOW[800]};
   }
 `
+
+export const PayamentDetailsContainer = styled.section`
+  background-color: ${(props) => props.theme.GRAY[200]};
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  border-radius: 6px;
+
+  svg path {
+    color: ${(props) => props.theme.PURPLE[400]};
+  }
+`
+export const Title = styled.div`
+  width: 100%;
+
+  p {
+    color: ${(props) => props.theme.GRAY[800]};
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  p + p {
+    font-size: 1.4rem;
+    margin-left: 3rem;
+  }
+`
+
+export const PayamentDetails = styled.div`
+  width: 100%;
+  margin-top: 3.2rem;
+  display: flex;
+  gap: 1.2rem;
+
+  div {
+    width: 100%;
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    width: 17.9rem;
+    height: 5.1rem;
+    padding: 1.6rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background-color: ${(props) => props.theme.GRAY[400]};
+    transition: 0.3s background-color;
+    cursor: pointer;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: ${(props) => props.theme.GRAY[500]};
+    }
+  }
+
+  .checkbox-checked {
+    background-color: ${(props) => props.theme.PURPLE[200]};
+    border: 1px solid ${(props) => props.theme.PURPLE[400]};
+    transition: 0.3s background-color;
+
+    &:hover {
+      background-color: ${(props) => props.theme.PURPLE[200]};
+      box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.55);
+    }
+  }
+`
