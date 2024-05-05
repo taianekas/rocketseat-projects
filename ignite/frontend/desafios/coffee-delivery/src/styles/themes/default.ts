@@ -24,4 +24,5 @@ export const defaultTheme = {
   },
 
   WHITE: '#FFFFFF',
+  gradient: 'linear-gradient(to right, #dbac2c, #8047f8)',
 }
