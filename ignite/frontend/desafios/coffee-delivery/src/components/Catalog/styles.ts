@@ -109,7 +109,7 @@ export const CartButton = styled.button`
   color: ${(props) => props.theme.WHITE};
   border: none;
   border-radius: 6px;
-  padding: 0.7rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

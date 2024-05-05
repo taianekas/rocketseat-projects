@@ -25,7 +25,8 @@ export const GlobalStyles = createGlobalStyle`
     background: transparent; /* Cor do fundo do scrollbar */
   }
   ::-webkit-scrollbar {
-    width: 1px; /* Largura do scrollbar */
+    width: 0px; /* Largura do scrollbar */
+    display: none;
   }
 
   body, input, button {
