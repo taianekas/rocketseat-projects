@@ -1,41 +1,40 @@
 import { Minus, Plus } from '@phosphor-icons/react'
 import { Button, Container } from './styles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export function Counter() {
-  const [value, setValue] = useState(0)
+interface CounterProps {
+  onAddCount: (value: number) => void
+  onDeleteCount: (value: number) => void
+}
 
-  function handleUpdatedCountItem(action: string) {
-    if (action === 'add') {
-      const result = value + 1
-      setValue(result)
-    }
+export function Counter({ onAddCount, onDeleteCount }: CounterProps) {
+  const [count, setCount] = useState(0)
 
-    if (action === 'remove') {
-      if (!(value <= 0)) {
-        const result = value - 1
-        return setValue(result)
-      }
-    }
+  function handleIncrementCount() {
+    const increment = count + 1
+    setCount(increment)
   }
+
+  function handleDecrementCount() {
+    const decrementIfGreaterThanZero = count !== 0 ? count - 1 : count
+
+    setCount(decrementIfGreaterThanZero)
+  }
+
+  useEffect(() => {
+    onAddCount(count)
+    onDeleteCount(count)
+  }, [count, onAddCount, onDeleteCount])
 
   return (
     <Container>
-      <Button
-        onClick={() => {
-          handleUpdatedCountItem('remove')
-        }}
-      >
+      <Button onClick={handleDecrementCount}>
         <Minus weight="bold" />
       </Button>
 
-      <input type="number" value={value} />
+      <input type="number" value={count} readOnly />
 
-      <Button
-        onClick={() => {
-          handleUpdatedCountItem('add')
-        }}
-      >
+      <Button onClick={handleIncrementCount}>
         <Plus weight="bold" />
       </Button>
     </Container>
