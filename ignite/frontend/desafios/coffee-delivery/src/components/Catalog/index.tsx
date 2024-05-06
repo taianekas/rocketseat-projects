@@ -13,27 +13,34 @@ import { useState } from 'react'
 
 export interface CatalogProps {
   id: string
-  tag: string[]
+  tag?: string[]
   name: string
   description: string
-  value: number
+  price: number
   image: string
   count: number
 }
 
 export function Catalog({
+  id,
   tag,
   name,
   description,
-  value,
+  price,
   image,
+  count,
 }: CatalogProps) {
-  const [getNewPrice, setGetNewPrice] = useState(0)
+  const [amountCounter, setAmountCounter] = useState(0)
+  const [newListCoffee] = useState([
+    { id, tag, name, description, price, image, count },
+  ])
 
-  const Tags = tag.map((title) => ({
-    id: uuidv4(),
-    title,
-  }))
+  const Tags =
+    tag &&
+    tag.map((title) => ({
+      id: uuidv4(),
+      title,
+    }))
 
   function coinFormat(value: number) {
     const twoDecimalsPlaces = Math.round(value * 100) / 100
@@ -51,10 +58,22 @@ export function Catalog({
   }
 
   function updatedCount(count: number) {
-    setGetNewPrice(count)
+    setAmountCounter(count)
   }
 
-  const newPrice = getNewPrice > 0 ? getNewPrice * value : value
+  function addCoffeeInCart({ id, value }: { id: string; value: number }) {
+    newListCoffee.map((item) => {
+      if (item.id === id) {
+        item.count = value
+        item.price = value * price
+      }
+      return item
+    })
+  }
+
+  addCoffeeInCart({ id, value: amountCounter })
+
+  const newPrice = amountCounter > 0 ? amountCounter * price : price
 
   return (
     <>
@@ -64,7 +83,7 @@ export function Catalog({
         </div>
 
         <TagsContent>
-          {Tags.map((tag) => {
+          {Tags!.map((tag) => {
             return <Tag key={tag.id}>{tag.title}</Tag>
           })}
         </TagsContent>
@@ -86,6 +105,7 @@ export function Catalog({
           </div>
         </Actions>
       </Container>
+      <pre>{JSON.stringify(newListCoffee, null, 2)}</pre>
     </>
   )
 }
