@@ -11,12 +11,14 @@ export const Container = styled.div`
   gap: 0.4rem;
   padding: 0.8rem;
 
-  p {
+  input {
+    background-color: transparent;
+    flex: 1;
+    width: 100%;
+    border: none;
     font-size: 1.6rem;
     color: ${(props) => props.theme.PURPLE[900]};
     text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
   }
 `
 export const Button = styled.button`

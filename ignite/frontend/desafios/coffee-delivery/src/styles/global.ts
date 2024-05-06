@@ -29,6 +29,12 @@ export const GlobalStyles = createGlobalStyle`
     display: none;
   }
 
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   body, input, button {
     font-family: "Roboto", sans-serif;
   }

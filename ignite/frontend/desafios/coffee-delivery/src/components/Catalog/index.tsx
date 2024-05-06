@@ -8,13 +8,17 @@ import {
 } from './styles'
 import { Counter } from '../Counter'
 import { ShoppingCartSimple } from '@phosphor-icons/react'
+import { v4 as uuidv4 } from 'uuid'
+import { useState } from 'react'
 
 export interface CatalogProps {
+  id: string
   tag: string[]
   name: string
   description: string
   value: number
   image: string
+  count: number
 }
 
 export function Catalog({
@@ -24,8 +28,10 @@ export function Catalog({
   value,
   image,
 }: CatalogProps) {
-  const Tags = tag.map((title, index) => ({
-    id: `id${index + 1}`,
+  const [getNewPrice, setGetNewPrice] = useState(0)
+
+  const Tags = tag.map((title) => ({
+    id: uuidv4(),
     title,
   }))
 
@@ -44,34 +50,42 @@ export function Catalog({
     return `${integerPartFormatada},${decimalPart}`
   }
 
+  function updatedCount(count: number) {
+    setGetNewPrice(count)
+  }
+
+  const newPrice = getNewPrice > 0 ? getNewPrice * value : value
+
   return (
-    <Container>
-      <div className="img-container">
-        <img src={image} alt="" />
-      </div>
-
-      <TagsContent>
-        {Tags.map((tag) => {
-          return <Tag key={tag.id}>{tag.title}</Tag>
-        })}
-      </TagsContent>
-
-      <CoffeeInfo>
-        <h1>{name}</h1>
-        <p>{description}</p>
-      </CoffeeInfo>
-
-      <Actions>
-        <p>
-          <span>{'R$'}</span> {coinFormat(value)}
-        </p>
-        <div>
-          <Counter />
-          <CartButton>
-            <ShoppingCartSimple size={20} weight="fill" />
-          </CartButton>
+    <>
+      <Container>
+        <div className="img-container">
+          <img src={image} alt="" />
         </div>
-      </Actions>
-    </Container>
+
+        <TagsContent>
+          {Tags.map((tag) => {
+            return <Tag key={tag.id}>{tag.title}</Tag>
+          })}
+        </TagsContent>
+
+        <CoffeeInfo>
+          <h1>{name}</h1>
+          <p>{description}</p>
+        </CoffeeInfo>
+
+        <Actions>
+          <p>
+            <span>{'R$'}</span> {coinFormat(newPrice)}
+          </p>
+          <div>
+            <Counter onAddCount={updatedCount} onDeleteCount={updatedCount} />
+            <CartButton>
+              <ShoppingCartSimple size={20} weight="fill" />
+            </CartButton>
+          </div>
+        </Actions>
+      </Container>
+    </>
   )
 }

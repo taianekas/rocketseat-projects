@@ -3,7 +3,18 @@ import imgIntro from '../../assets/coffee-intro.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
 import { Catalog } from '../../components/Catalog'
 import { CoffeeList } from '../../data'
+
 export function Home() {
+  const formattedCoffeeList = CoffeeList.map((coffee) => ({
+    id: coffee.id,
+    tag: coffee.tag.map((tag) => tag.title),
+    name: coffee.name,
+    description: coffee.description,
+    value: coffee.value,
+    image: coffee.image,
+    count: coffee.count,
+  }))
+
   return (
     <Container>
       <Intro>
@@ -49,20 +60,11 @@ export function Home() {
         <img src={imgIntro} alt="" />
       </Intro>
       <Menu>
-        {CoffeeList.map((items) => {
-          const tag = items.tag.map((tags) => tags.title)
-          return (
-            <Catalog
-              key={items.id}
-              tag={tag}
-              name={items.name}
-              description={items.description}
-              value={items.value}
-              image={items.image}
-            />
-          )
-        })}
+        {formattedCoffeeList.map((coffee) => (
+          <Catalog key={coffee.id} {...coffee} />
+        ))}
       </Menu>
+      <pre>{JSON.stringify(formattedCoffeeList, null, 2)}</pre>
     </Container>
   )
 }
