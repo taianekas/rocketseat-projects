@@ -24,6 +24,7 @@ export const CoffeeList = styled.div`
   padding-top: 1rem;
   max-height: 52rem;
   overflow: scroll;
+  background-color: red;
 `
 
 export const PurchaseDetails = styled.div`
@@ -121,7 +122,7 @@ export const PayamentDetails = styled.div`
     }
   }
 
-  .checkbox-checked {
+  .method-selected {
     background-color: ${(props) => props.theme.PURPLE[200]};
     border: 1px solid ${(props) => props.theme.PURPLE[400]};
     transition: 0.3s background-color;
