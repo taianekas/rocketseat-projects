@@ -1,18 +1,14 @@
-import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
-import Coffee1 from '../../assets/coffee/Cubano.png'
-import Coffee2 from '../../assets/coffee/Havaiano.png'
-import { AddressForm } from '../../components/AddressForm'
-import { CoffeeCard } from '../../components/CoffeeCard'
 import {
   Container,
   CheckoutContent,
   PurchaseDetails,
-  CoffeeList,
   ConfirmOrder,
   PayamentDetailsContainer,
   Title,
   PayamentDetails,
 } from './styled'
+import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
+import { AddressForm } from '../../components/AddressForm'
 
 export function Checkout() {
   return (
@@ -20,15 +16,6 @@ export function Checkout() {
       <AddressForm />
 
       <CheckoutContent>
-        <CoffeeList>
-          <CoffeeCard
-            image={Coffee1}
-            name="Expresso Tradicional"
-            value={'9,90'}
-          />
-          <CoffeeCard image={Coffee2} name="Latte" value={'9,90'} />
-        </CoffeeList>
-
         <PurchaseDetails>
           <p>
             Total de itens<span>R$ 29,70</span>
@@ -55,23 +42,24 @@ export function Checkout() {
             {'O pagamento é feito na entrega. Escolha a forma que deseja pagar'}
           </p>
         </Title>
+
         <PayamentDetails>
-          <label htmlFor={`credit-card`} className={'checkbox-checked'}>
+          <label htmlFor={`credit-card`} className={'method-selected'}>
             <CreditCard size={16} />
             Cartão de crédito
-            <input id={`credit-card`} type="checkbox" readOnly />
+            <input id={`credit-card`} type="radio" readOnly />
           </label>
 
-          <label htmlFor={`debit-card`} className={'checkbox-unchecked'}>
+          <label htmlFor={`debit-card`} className={'method-unselected'}>
             <Bank size={16} />
             Cartão de débito
-            <input id={`debit-card`} type="checkbox" readOnly />
+            <input id={`debit-card`} type="radio" readOnly />
           </label>
 
-          <label htmlFor={`debit-card`} className={'checkbox-unchecked'}>
+          <label htmlFor={`debit-card`} className={'method-unselected'}>
             <Money size={16} />
             Dinheiro
-            <input id={`money`} type="checkbox" readOnly />
+            <input id={`money`} type="radio" readOnly />
           </label>
         </PayamentDetails>
       </PayamentDetailsContainer>
