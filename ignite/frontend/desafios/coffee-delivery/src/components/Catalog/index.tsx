@@ -1,14 +1,5 @@
-import {
-  Actions,
-  Container,
-  CoffeeInfo,
-  Tag,
-  CartButton,
-  TagsContent,
-} from './styles'
-import { Counter } from '../Counter'
-import { ShoppingCartSimple } from '@phosphor-icons/react'
-import { v4 as uuidv4 } from 'uuid'
+import { Container, CoffeeInfo, TagsContent } from './styles'
+import { Actions, CoffeeProductData } from '../Actions'
 import { useState } from 'react'
 
 export interface CatalogProps {
@@ -16,76 +7,42 @@ export interface CatalogProps {
   tag: string[]
   name: string
   description: string
-  value: number
+  price: number
   image: string
   count: number
+  data: CoffeeProductData
 }
 
-export function Catalog({
-  tag,
-  name,
-  description,
-  value,
-  image,
-}: CatalogProps) {
-  const [getNewPrice, setGetNewPrice] = useState(0)
+export function Catalog({ data, tag, name, description, image }: CatalogProps) {
+  const [productNewData, setProductNewData] = useState<CoffeeProductData[]>([])
 
-  const Tags = tag.map((title) => ({
-    id: uuidv4(),
-    title,
-  }))
+  const getProductData = (value: CoffeeProductData[]) => {
+    const newData = value.map((item) => {
+      return { ...item }
+    })
 
-  function coinFormat(value: number) {
-    const twoDecimalsPlaces = Math.round(value * 100) / 100
-
-    const valueInString = twoDecimalsPlaces.toFixed(2)
-
-    const [integerPart, decimalPart] = valueInString.split('.')
-
-    const integerPartFormatada = integerPart.replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      '.',
-    )
-
-    return `${integerPartFormatada},${decimalPart}`
+    setProductNewData(newData)
   }
-
-  function updatedCount(count: number) {
-    setGetNewPrice(count)
-  }
-
-  const newPrice = getNewPrice > 0 ? getNewPrice * value : value
 
   return (
-    <>
-      <Container>
-        <div className="img-container">
-          <img src={image} alt="" />
-        </div>
+    <Container>
+      <div className="img-container">
+        <img src={image} alt="" />
+      </div>
 
-        <TagsContent>
-          {Tags.map((tag) => {
-            return <Tag key={tag.id}>{tag.title}</Tag>
-          })}
-        </TagsContent>
+      <TagsContent>{tag}</TagsContent>
 
-        <CoffeeInfo>
-          <h1>{name}</h1>
-          <p>{description}</p>
-        </CoffeeInfo>
-
-        <Actions>
-          <p>
-            <span>{'R$'}</span> {coinFormat(newPrice)}
-          </p>
-          <div>
-            <Counter onAddCount={updatedCount} onDeleteCount={updatedCount} />
-            <CartButton>
-              <ShoppingCartSimple size={20} weight="fill" />
-            </CartButton>
-          </div>
-        </Actions>
-      </Container>
-    </>
+      <CoffeeInfo>
+        <h1>{name}</h1>
+        <p>{description}</p>
+      </CoffeeInfo>
+      <Actions
+        data={data}
+        action="add"
+        onAddProduct={getProductData}
+        onChildChange={getProductData}
+      />
+      <pre>{JSON.stringify(productNewData, null, 2)}</pre>
+    </Container>
   )
 }

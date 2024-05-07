@@ -7,10 +7,10 @@ import { CoffeeList } from '../../data'
 export function Home() {
   const formattedCoffeeList = CoffeeList.map((coffee) => ({
     id: coffee.id,
-    tag: coffee.tag.map((tag) => tag.title),
+    tag: coffee.tag.map((item) => item.title),
     name: coffee.name,
     description: coffee.description,
-    value: coffee.value,
+    price: coffee.price,
     image: coffee.image,
     count: coffee.count,
   }))
@@ -61,10 +61,9 @@ export function Home() {
       </Intro>
       <Menu>
         {formattedCoffeeList.map((coffee) => (
-          <Catalog key={coffee.id} {...coffee} />
+          <Catalog key={coffee.id} {...coffee} data={{ ...coffee }} />
         ))}
       </Menu>
-      <pre>{JSON.stringify(formattedCoffeeList, null, 2)}</pre>
     </Container>
   )
 }

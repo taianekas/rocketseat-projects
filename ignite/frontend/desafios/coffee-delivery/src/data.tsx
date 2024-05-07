@@ -6,7 +6,7 @@ export const CoffeeList = [
     tag: [{ title: 'Tradicional' }],
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
-    value: 1,
+    price: 1,
     image: 'src/assets/coffee/Expresso.png',
     count: 0,
   },
@@ -15,24 +15,25 @@ export const CoffeeList = [
     tag: [{ title: 'Tradicional' }],
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
-    value: 1,
+    price: 1,
     image: 'src/assets/coffee/Americano.png',
     count: 0,
   },
-  //   {
-  //     id: uuidv4(),
-  //     tag: [{ title: 'Tradicional' }],
-  //     name: 'Expresso Cremoso',
-  //     description: 'Café expresso tradicional com espuma cremosa',
-  //     value: 1,
-  //     image: 'src/assets/coffee/Expresso Cremoso.png',
-  //   },
+  {
+    id: uuidv4(),
+    tag: [{ title: 'Tradicional' }],
+    name: 'Expresso Cremoso',
+    description: 'Café expresso tradicional com espuma cremosa',
+    price: 1,
+    image: 'src/assets/coffee/Expresso Cremoso.png',
+    count: 0,
+  },
   //   {
   //     id: uuidv4(),
   //     tag: [{ title: 'Tradicional' }, { title: 'Gelado' }],
   //     name: 'Expresso Gelado',
   //     description: 'Bebida preparada com café expresso e cubos de gelo',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Café Gelado.png',
   //   },
   //   {
@@ -40,7 +41,7 @@ export const CoffeeList = [
   //     tag: [{ title: 'Tradicional' }, { title: 'Com leite' }],
   //     name: 'Café com Leite',
   //     description: 'Meio a meio de expresso tradicional com leite vaporizado',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Café com Leite.png',
   //   },
   //   {
@@ -49,7 +50,7 @@ export const CoffeeList = [
   //     name: 'Latte',
   //     description:
   //       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Latte.png',
   //   },
   //   {
@@ -58,7 +59,7 @@ export const CoffeeList = [
   //     name: 'Capuccino',
   //     description:
   //       'Bebida com canela feita de doses iguais de café, leite e espuma',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Capuccino.png',
   //   },
   //   {
@@ -67,7 +68,7 @@ export const CoffeeList = [
   //     name: 'Macchiato',
   //     description:
   //       'Café expresso misturado com um pouco de leite quente e espuma',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Macchiato.png',
   //   },
   //   {
@@ -75,7 +76,7 @@ export const CoffeeList = [
   //     tag: [{ title: 'Tradicional' }, { title: 'Com leite' }],
   //     name: 'Mocaccino',
   //     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Mochaccino.png',
   //   },
   //   {
@@ -83,7 +84,7 @@ export const CoffeeList = [
   //     tag: [{ title: 'Especial' }, { title: 'Com leite' }],
   //     name: 'Chocolate Quente',
   //     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Chocolate Quente.png',
   //   },
   //   {
@@ -92,7 +93,7 @@ export const CoffeeList = [
   //     name: 'Cubano',
   //     description:
   //       'Drink gelado de café expresso com rum, creme de leite e hortelã',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Cubano.png',
   //   },
   //   {
@@ -100,7 +101,7 @@ export const CoffeeList = [
   //     tag: [{ title: 'Especial' }],
   //     name: 'Havaiano',
   //     description: 'Bebida adocicada preparada com café e leite de coco',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Havaiano.png',
   //   },
   //   {
@@ -108,7 +109,7 @@ export const CoffeeList = [
   //     tag: [{ title: 'Especial' }],
   //     name: 'Árabe',
   //     description: 'Bebida preparada com grãos de café árabe e especiarias',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Árabe.png',
   //   },
   //   {
@@ -116,7 +117,7 @@ export const CoffeeList = [
   //     tag: [{ title: 'Especial' }, { title: 'Alcoólico' }],
   //     name: 'Irlandês',
   //     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-  //     value: 1,
+  //     price: 1,
   //     image: 'src/assets/coffee/Irlandês.png',
   //   },
 ]
