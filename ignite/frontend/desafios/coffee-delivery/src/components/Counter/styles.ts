@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 7.2rem;
-  height: 3.2rem;
   background-color: ${(props) => props.theme.GRAY[400]};
   border-radius: 6px;
   display: flex;
