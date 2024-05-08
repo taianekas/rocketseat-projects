@@ -1,38 +1,39 @@
+import { useContext } from 'react'
 import { Minus, Plus } from '@phosphor-icons/react'
 import { Button, Container } from './styles'
-import { useEffect, useState } from 'react'
+import {
+  ProductData,
+  ShoppingCartContext,
+} from '../../contexts/ShoppingCartContext'
 
 interface CounterProps {
-  onAddCount: (value: number) => void
-  onDeleteCount: (value: number) => void
+  data: ProductData
 }
 
-export function Counter({ onAddCount, onDeleteCount }: CounterProps) {
-  const [count, setCount] = useState(0)
+export function Counter({ data }: CounterProps) {
+  const { productCounts, decrementCount, incrementCount } =
+    useContext(ShoppingCartContext)
 
-  function handleDecrementCount() {
-    setCount((prevCount) => (prevCount !== 0 ? prevCount - 1 : 0))
-  }
-
-  function handleIncrementCount() {
-    setCount((prevCount) => prevCount + 1)
-  }
-
-  useEffect(() => {
-    onAddCount(count)
-    onDeleteCount(count)
-  }, [count, onAddCount, onDeleteCount])
+  const count = productCounts[data.id] ?? 0
 
   return (
     <>
       <Container>
-        <Button onClick={handleDecrementCount}>
+        <Button
+          onClick={() => {
+            decrementCount(data.id)
+          }}
+        >
           <Minus weight="bold" />
         </Button>
 
         <input type="number" value={count} readOnly />
 
-        <Button onClick={handleIncrementCount}>
+        <Button
+          onClick={() => {
+            incrementCount(data.id)
+          }}
+        >
           <Plus weight="bold" />
         </Button>
       </Container>
