@@ -1,19 +1,12 @@
+import { useContext } from 'react'
+import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
 import { Container, Icon, Intro, Menu } from './styles'
 import imgIntro from '../../assets/coffee-intro.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
 import { Catalog } from '../../components/Catalog'
-import { ProductsList } from '../../data'
 
 export function Home() {
-  const formattedCoffeeList = ProductsList.map((coffee) => ({
-    id: coffee.id,
-    tag: coffee.tag.map((item) => item.title),
-    name: coffee.name,
-    description: coffee.description,
-    price: coffee.price,
-    image: coffee.image,
-    count: coffee.count,
-  }))
+  const { productsDataBase } = useContext(ShoppingCartContext)
 
   return (
     <Container>
@@ -60,11 +53,11 @@ export function Home() {
         <img src={imgIntro} alt="" />
       </Intro>
       <Menu>
-        {formattedCoffeeList.map((coffee) => (
-          <Catalog key={coffee.id} {...coffee} data={{ ...coffee }} />
+        {productsDataBase.map((items) => (
+          <Catalog key={items.id} {...items} data={{ ...items }} />
         ))}
       </Menu>
-      <pre>{JSON.stringify(formattedCoffeeList, null, 2)}</pre>
+      <pre>{JSON.stringify(productsDataBase, null, 2)}</pre>
     </Container>
   )
 }
