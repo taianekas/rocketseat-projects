@@ -1,39 +1,18 @@
-import { useContext } from 'react'
+import {} from 'react'
 import { Minus, Plus } from '@phosphor-icons/react'
 import { Button, Container } from './styles'
-import {
-  ProductData,
-  ShoppingCartContext,
-} from '../../contexts/ShoppingCartContext'
 
-interface CounterProps {
-  data: ProductData
-}
-
-export function Counter({ data }: CounterProps) {
-  const { productCounts, decrementCount, incrementCount } =
-    useContext(ShoppingCartContext)
-
-  const count = productCounts[data.id] ?? 0
-
+export function Counter() {
   return (
     <>
       <Container>
-        <Button
-          onClick={() => {
-            decrementCount(data.id)
-          }}
-        >
+        <Button>
           <Minus weight="bold" />
         </Button>
 
-        <input type="number" value={count} readOnly />
+        <input type="number" value={1} readOnly />
 
-        <Button
-          onClick={() => {
-            incrementCount(data.id)
-          }}
-        >
+        <Button>
           <Plus weight="bold" />
         </Button>
       </Container>
