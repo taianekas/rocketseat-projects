@@ -1,48 +1,28 @@
-import { Container, CoffeeInfo, TagsContent } from './styles'
-import { Actions, CoffeeProductData } from '../Actions'
-import { useState } from 'react'
+import {} from 'react'
+import { Container, CoffeeInfo, TagsContent, Tag } from './styles'
+import { Actions } from '../Actions'
+import { ProductData } from '../../contexts/ShoppingCartContext'
 
 export interface CatalogProps {
-  id: string
-  tag: string[]
-  name: string
-  description: string
-  price: number
-  image: string
-  count: number
-  data: CoffeeProductData
+  data: ProductData
 }
 
-export function Catalog({ data, tag, name, description, image }: CatalogProps) {
-  const [productNewData, setProductNewData] = useState<CoffeeProductData[]>([])
-
-  const getProductData = (value: CoffeeProductData[]) => {
-    const newData = value.map((item) => {
-      return { ...item }
-    })
-
-    setProductNewData(newData)
-  }
-
+export function Catalog({ data }: CatalogProps) {
   return (
     <Container>
       <div className="img-container">
-        <img src={image} alt="" />
+        <img src={data.image} alt="" />
       </div>
 
-      <TagsContent>{tag}</TagsContent>
+      <TagsContent>
+        <Tag>{data.tag}</Tag>
+      </TagsContent>
 
       <CoffeeInfo>
-        <h1>{name}</h1>
-        <p>{description}</p>
+        <h1>{data.name}</h1>
+        <p>{data.description}</p>
       </CoffeeInfo>
-      <Actions
-        data={data}
-        action="add"
-        onAddProduct={getProductData}
-        onChildChange={getProductData}
-      />
-      <pre>{JSON.stringify(productNewData, null, 2)}</pre>
+      <Actions data={data} action="add" />
     </Container>
   )
 }
