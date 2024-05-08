@@ -8,7 +8,6 @@ export const ProductsList = [
   //   description: 'O tradicional café feito com água quente e grãos moídos',
   //   price: 1,
   //   image: 'src/assets/coffee/Expresso.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -17,7 +16,6 @@ export const ProductsList = [
   //   description: 'Expresso diluído, menos intenso que o tradicional',
   //   price: 1,
   //   image: 'src/assets/coffee/Americano.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -26,7 +24,6 @@ export const ProductsList = [
   //   description: 'Café expresso tradicional com espuma cremosa',
   //   price: 1,
   //   image: 'src/assets/coffee/Expresso Cremoso.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -35,7 +32,6 @@ export const ProductsList = [
   //   description: 'Bebida preparada com café expresso e cubos de gelo',
   //   price: 1,
   //   image: 'src/assets/coffee/Café Gelado.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -44,7 +40,6 @@ export const ProductsList = [
   //   description: 'Meio a meio de expresso tradicional com leite vaporizado',
   //   price: 1,
   //   image: 'src/assets/coffee/Café com Leite.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -54,7 +49,6 @@ export const ProductsList = [
   //     'Uma dose de café expresso com o dobro de leite e espuma cremosa',
   //   price: 1,
   //   image: 'src/assets/coffee/Latte.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -64,7 +58,6 @@ export const ProductsList = [
   //     'Bebida com canela feita de doses iguais de café, leite e espuma',
   //   price: 1,
   //   image: 'src/assets/coffee/Capuccino.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -74,7 +67,6 @@ export const ProductsList = [
   //     'Café expresso misturado com um pouco de leite quente e espuma',
   //   price: 1,
   //   image: 'src/assets/coffee/Macchiato.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -83,7 +75,6 @@ export const ProductsList = [
   //   description: 'Café expresso com calda de chocolate, pouco leite e espuma',
   //   price: 1,
   //   image: 'src/assets/coffee/Mochaccino.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -92,7 +83,6 @@ export const ProductsList = [
   //   description: 'Bebida feita com chocolate dissolvido no leite quente e café',
   //   price: 1,
   //   image: 'src/assets/coffee/Chocolate Quente.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -101,7 +91,6 @@ export const ProductsList = [
   //   description: 'Bebida adocicada preparada com café e leite de coco',
   //   price: 1,
   //   image: 'src/assets/coffee/Havaiano.png',
-  //   count: 0,
   // },
   // {
   //   id: uuidv4(),
@@ -110,7 +99,6 @@ export const ProductsList = [
   //   description: 'Bebida preparada com grãos de café árabe e especiarias',
   //   price: 1,
   //   image: 'src/assets/coffee/Árabe.png',
-  //   count: 0,
   // },
   {
     id: uuidv4(),
@@ -119,7 +107,6 @@ export const ProductsList = [
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     price: 1,
     image: 'src/assets/coffee/Irlandês.png',
-    count: 1,
   },
   {
     id: uuidv4(),
@@ -129,6 +116,5 @@ export const ProductsList = [
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     price: 1,
     image: 'src/assets/coffee/Cubano.png',
-    count: 1,
   },
 ]
