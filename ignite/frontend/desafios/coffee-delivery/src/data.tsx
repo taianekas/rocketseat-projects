@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-export const CoffeeList = [
+export const ProductsList = [
   {
     id: uuidv4(),
     tag: [{ title: 'Tradicional' }],
@@ -10,24 +10,24 @@ export const CoffeeList = [
     image: 'src/assets/coffee/Expresso.png',
     count: 0,
   },
-  {
-    id: uuidv4(),
-    tag: [{ title: 'Tradicional' }],
-    name: 'Expresso Americano',
-    description: 'Expresso diluído, menos intenso que o tradicional',
-    price: 1,
-    image: 'src/assets/coffee/Americano.png',
-    count: 0,
-  },
-  {
-    id: uuidv4(),
-    tag: [{ title: 'Tradicional' }],
-    name: 'Expresso Cremoso',
-    description: 'Café expresso tradicional com espuma cremosa',
-    price: 1,
-    image: 'src/assets/coffee/Expresso Cremoso.png',
-    count: 0,
-  },
+  // {
+  //   id: uuidv4(),
+  //   tag: [{ title: 'Tradicional' }],
+  //   name: 'Expresso Americano',
+  //   description: 'Expresso diluído, menos intenso que o tradicional',
+  //   price: 1,
+  //   image: 'src/assets/coffee/Americano.png',
+  //   count: 0,
+  // },
+  // {
+  //   id: uuidv4(),
+  //   tag: [{ title: 'Tradicional' }],
+  //   name: 'Expresso Cremoso',
+  //   description: 'Café expresso tradicional com espuma cremosa',
+  //   price: 1,
+  //   image: 'src/assets/coffee/Expresso Cremoso.png',
+  //   count: 0,
+  // },
   //   {
   //     id: uuidv4(),
   //     tag: [{ title: 'Tradicional' }, { title: 'Gelado' }],
@@ -87,15 +87,15 @@ export const CoffeeList = [
   //     price: 1,
   //     image: 'src/assets/coffee/Chocolate Quente.png',
   //   },
-  //   {
-  //     id: uuidv4(),
-  //     tag: [{ title: 'Especial' }, { title: 'Alcoólico' }, { title: 'Gelado' }],
-  //     name: 'Cubano',
-  //     description:
-  //       'Drink gelado de café expresso com rum, creme de leite e hortelã',
-  //     price: 1,
-  //     image: 'src/assets/coffee/Cubano.png',
-  //   },
+  {
+    id: uuidv4(),
+    tag: [{ title: 'Especial' }, { title: 'Alcoólico' }, { title: 'Gelado' }],
+    name: 'Cubano',
+    description:
+      'Drink gelado de café expresso com rum, creme de leite e hortelã',
+    price: 1,
+    image: 'src/assets/coffee/Cubano.png',
+  },
   //   {
   //     id: uuidv4(),
   //     tag: [{ title: 'Especial' }],

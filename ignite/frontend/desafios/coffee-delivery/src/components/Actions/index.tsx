@@ -9,25 +9,14 @@ import {
 } from './styled'
 import { Counter } from '../Counter'
 import { ShoppingCartSimple, Trash } from '@phosphor-icons/react'
-
-export interface CoffeeProductData {
-  id: string
-  tag: string[]
-  name: string
-  description: string
-  price: number
-  image: string
-  count: number
-}
+import { ProductData } from '../../contexts/ShoppingCartContext'
 
 interface ActionsProps {
   action: 'add' | 'delete'
-  data: CoffeeProductData
-  onAddProduct: (value: CoffeeProductData[]) => void
-  onChildChange: (value: CoffeeProductData[]) => void // n sei
+  data: ProductData
 }
 
-export function Actions({ action, data, onChildChange }: ActionsProps) {
+export function Actions({ action, data }: ActionsProps) {
   const [amountCounter, setAmountCounter] = useState(0)
   const [productNewData, setProductNewData] = useState([{ ...data }])
 
@@ -50,7 +39,7 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
     return `${integerPartFormatada},${decimalPart}`
   }
 
-  function handleAddNewProduct(data: CoffeeProductData) {
+  function handleAddNewProduct(data: ProductData) {
     const newProduct = productNewData.map((item) => {
       if (item.id === data.id) {
         return {
@@ -62,7 +51,6 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
       return item
     })
     setProductNewData(newProduct)
-    onChildChange(newProduct)
   }
 
   function handleRemoveProduct(id: string) {

@@ -2,10 +2,10 @@ import { Container, Icon, Intro, Menu } from './styles'
 import imgIntro from '../../assets/coffee-intro.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
 import { Catalog } from '../../components/Catalog'
-import { CoffeeList } from '../../data'
+import { ProductsList } from '../../data'
 
 export function Home() {
-  const formattedCoffeeList = CoffeeList.map((coffee) => ({
+  const formattedCoffeeList = ProductsList.map((coffee) => ({
     id: coffee.id,
     tag: coffee.tag.map((item) => item.title),
     name: coffee.name,
