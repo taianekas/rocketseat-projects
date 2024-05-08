@@ -71,7 +71,7 @@ export function ShoppingCartContextProvider({
   function incrementCount(id: ProductId) {
     setProductCounts((prevProductsCount) => ({
       ...prevProductsCount,
-      [id]: (prevProductsCount[id] ?? 1) + 1,
+      [id]: (prevProductsCount[id] ?? 0) + 1,
     }))
   }
 
