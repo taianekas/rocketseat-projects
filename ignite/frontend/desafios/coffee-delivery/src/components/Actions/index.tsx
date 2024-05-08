@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
   Container,
   AddToCart,
@@ -9,35 +9,22 @@ import {
 } from './styled'
 import { Counter } from '../Counter'
 import { ShoppingCartSimple, Trash } from '@phosphor-icons/react'
-
-export interface CoffeeProductData {
-  id: string
-  tag: string[]
-  name: string
-  description: string
-  price: number
-  image: string
-  count: number
-}
+import {
+  ProductData,
+  ShoppingCartContext,
+} from '../../contexts/ShoppingCartContext'
 
 interface ActionsProps {
   action: 'add' | 'delete'
-  data: CoffeeProductData
-  onAddProduct: (value: CoffeeProductData[]) => void
-  onChildChange: (value: CoffeeProductData[]) => void // n sei
+  data: ProductData
 }
 
-export function Actions({ action, data, onChildChange }: ActionsProps) {
-  const [amountCounter, setAmountCounter] = useState(0)
+export function Actions({ action, data }: ActionsProps) {
+  const { productCounts } = useContext(ShoppingCartContext)
   const [productNewData, setProductNewData] = useState([{ ...data }])
-
-  function updatedCount(count: number) {
-    setAmountCounter(count)
-  }
 
   function coinFormat(value: number) {
     const twoDecimalsPlaces = Math.round(value * 100) / 100
-
     const valueInString = twoDecimalsPlaces.toFixed(2)
 
     const [integerPart, decimalPart] = valueInString.split('.')
@@ -50,21 +37,6 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
     return `${integerPartFormatada},${decimalPart}`
   }
 
-  function handleAddNewProduct(data: CoffeeProductData) {
-    const newProduct = productNewData.map((item) => {
-      if (item.id === data.id) {
-        return {
-          ...item,
-          count: amountCounter,
-          price: amountCounter !== 0 ? data.price * amountCounter : item.price,
-        }
-      }
-      return item
-    })
-    setProductNewData(newProduct)
-    onChildChange(newProduct)
-  }
-
   function handleRemoveProduct(id: string) {
     const newProduct = productNewData.filter((item) => {
       return item.id !== id
@@ -72,7 +44,10 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
     setProductNewData(newProduct)
   }
 
-  const newPrice = amountCounter > 0 ? amountCounter * data.price : data.price
+  const price =
+    productCounts[data.id] > 0
+      ? data.price * productCounts[data.id]
+      : data.price
 
   const willBeDisplayed = action
   return (
@@ -81,16 +56,12 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
         {willBeDisplayed === 'add' ? (
           <AddToCart>
             <p>
-              R$ <strong>{coinFormat(newPrice)}</strong>
+              R$ <strong>{coinFormat(price)}</strong>
             </p>
 
-            <Counter onAddCount={updatedCount} onDeleteCount={updatedCount} />
+            <Counter data={data} />
 
-            <ButtonAddItem
-              onClick={() => {
-                handleAddNewProduct({ ...data })
-              }}
-            >
+            <ButtonAddItem onClick={() => {}}>
               <ShoppingCartSimple weight={'fill'} size={22} />
             </ButtonAddItem>
           </AddToCart>
@@ -100,7 +71,7 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
 
             <Details className="dois">
               <p>Expresso</p>
-              <Counter onAddCount={updatedCount} onDeleteCount={updatedCount} />
+              <Counter data={data} />
               <ButtonRemoveItem onClick={() => handleRemoveProduct(data.id)}>
                 <Trash size={16} />
                 Remover
@@ -108,7 +79,7 @@ export function Actions({ action, data, onChildChange }: ActionsProps) {
             </Details>
 
             <p>
-              <strong>{`R$ ${coinFormat(newPrice)}`}</strong>
+              <strong>{`R$ ${coinFormat(price)}`}</strong>
             </p>
           </RemoveFromCart>
         )}
