@@ -1,6 +1,8 @@
 import { Container, Icon, Intro, Menu } from './styles'
 import imgIntro from '../../assets/coffee-intro.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
+import { ProductsList } from '../../data'
+import { Catalog } from '../../components/Catalog'
 
 export function Home() {
   return (
@@ -47,7 +49,14 @@ export function Home() {
 
         <img src={imgIntro} alt="" />
       </Intro>
-      <Menu></Menu>
+      <Menu>
+        {ProductsList.map((items) => (
+          <Catalog
+            key={items.id}
+            data={{ ...items, tag: items.tag.map((tag) => tag.title) }}
+          />
+        ))}
+      </Menu>
       {/* <pre>{JSON.stringify(productsDataBase, null, 2)}</pre> */}
     </Container>
   )

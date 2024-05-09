@@ -1,4 +1,4 @@
-import { CartState, CountState, ProductState } from './reducer'
+import { CartState, ProductState } from './reducer'
 
 export enum ActionsTypeCart {
   ADD_TO_CART = 'ADD_TO_CART',
@@ -17,56 +17,54 @@ export enum ActionsTypeProduct {
   LIST_PRODUCT = 'LIST_PRODUCT',
 }
 
-export function decrementCounter(state: CountState) {
+export function decrementCounterAction() {
   return {
     type: ActionsTypeCount.DECREMENT_QUANTITY,
-    payload: state,
   }
 }
 
-export function incrementCounter(state: CountState) {
+export function incrementCounterAction() {
   return {
     type: ActionsTypeCount.INCREMENT_QUANTITY,
-    payload: state,
   }
 }
 
-export function createProducts(state: ProductState) {
+export function createProductsAction(state: ProductState) {
   return {
     type: ActionsTypeProduct.CREATE_PRODUCT,
     payload: state,
   }
 }
 
-export function deleteProducts(state: ProductState) {
+export function deleteProductsAction(state: ProductState) {
   return {
     type: ActionsTypeProduct.DELETE_PRODUCT,
     payload: state,
   }
 }
 
-export function updateProducts(state: ProductState) {
+export function updateProductsAction(state: ProductState) {
   return {
     type: ActionsTypeProduct.UPDATE_PRODUCT,
     payload: state,
   }
 }
 
-export function listProducts(state: ProductState) {
+export function listProductsAction(state: ProductState) {
   return {
     type: ActionsTypeProduct.LIST_PRODUCT,
     payload: state,
   }
 }
 
-export function addToCart(state: CartState) {
+export function addToCartAction(state: CartState) {
   return {
     type: ActionsTypeProduct.LIST_PRODUCT,
     payload: state,
   }
 }
 
-export function removeFromCart(state: CartState) {
+export function removeFromCartAction(state: CartState) {
   return {
     type: ActionsTypeProduct.LIST_PRODUCT,
     payload: state,
