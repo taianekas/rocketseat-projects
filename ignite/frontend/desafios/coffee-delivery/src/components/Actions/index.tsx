@@ -1,4 +1,3 @@
-import {} from 'react'
 import {
   Container,
   AddToCart,
@@ -9,20 +8,23 @@ import {
 } from './styled'
 import { Counter } from '../Counter'
 import { ShoppingCartSimple, Trash } from '@phosphor-icons/react'
+import { ProductData } from '../../contexts/ShoppingCartContext'
 
 interface ActionsProps {
   action: 'add' | 'delete'
+  data: ProductData
 }
 
-export function Actions({ action }: ActionsProps) {
+export function Actions({ action, data }: ActionsProps) {
   const willBeDisplayed = action
+
   return (
     <>
       <Container>
         {willBeDisplayed === 'add' ? (
           <AddToCart>
             <p>
-              R$ <strong></strong>
+              R$ <strong> {data.price} </strong>
             </p>
 
             <Counter />
@@ -38,7 +40,7 @@ export function Actions({ action }: ActionsProps) {
             <Details className="dois">
               <p>Expresso</p>
               <Counter />
-              <ButtonRemoveItem onClick={}>
+              <ButtonRemoveItem onClick={() => {}}>
                 <Trash size={16} />
                 Remover
               </ButtonRemoveItem>
