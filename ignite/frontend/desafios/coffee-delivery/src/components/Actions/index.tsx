@@ -1,3 +1,4 @@
+import { useReducer } from 'react'
 import {
   Container,
   AddToCart,
@@ -5,10 +6,16 @@ import {
   RemoveFromCart,
   Details,
   ButtonRemoveItem,
+  Counter,
+  Button,
 } from './styled'
-import { Counter } from '../Counter'
-import { ShoppingCartSimple, Trash } from '@phosphor-icons/react'
+import { ShoppingCartSimple, Trash, Minus, Plus } from '@phosphor-icons/react'
 import { ProductData } from '../../contexts/ShoppingCartContext'
+import {
+  decrementCounterAction,
+  incrementCounterAction,
+} from '../../reducer/actions'
+import { reducerCount } from '../../reducer/reducer'
 
 interface ActionsProps {
   action: 'add' | 'delete'
@@ -16,8 +23,17 @@ interface ActionsProps {
 }
 
 export function Actions({ action, data }: ActionsProps) {
-  const willBeDisplayed = action
+  const [countState, dispatch] = useReducer(reducerCount, { count: 1 })
 
+  function updateCount(type: 'increment' | 'decrement') {
+    if (type === 'increment') {
+      dispatch(incrementCounterAction())
+    } else {
+      dispatch(decrementCounterAction())
+    }
+  }
+
+  const willBeDisplayed = action
   return (
     <>
       <Container>
@@ -27,7 +43,25 @@ export function Actions({ action, data }: ActionsProps) {
               R$ <strong> {data.price} </strong>
             </p>
 
-            <Counter />
+            <Counter>
+              <Button
+                onClick={() => {
+                  updateCount('decrement')
+                }}
+              >
+                <Minus weight="bold" />
+              </Button>
+
+              <input type="number" value={countState.count} readOnly />
+
+              <Button
+                onClick={() => {
+                  updateCount('increment')
+                }}
+              >
+                <Plus weight="bold" />
+              </Button>
+            </Counter>
 
             <ButtonAddItem onClick={() => {}}>
               <ShoppingCartSimple weight={'fill'} size={22} />
@@ -39,7 +73,27 @@ export function Actions({ action, data }: ActionsProps) {
 
             <Details className="dois">
               <p>Expresso</p>
-              <Counter />
+
+              <Counter>
+                <Button
+                  onClick={() => {
+                    updateCount('decrement')
+                  }}
+                >
+                  <Minus weight="bold" />
+                </Button>
+
+                <input type="number" value={countState.count} readOnly />
+
+                <Button
+                  onClick={() => {
+                    updateCount('increment')
+                  }}
+                >
+                  <Plus weight="bold" />
+                </Button>
+              </Counter>
+
               <ButtonRemoveItem onClick={() => {}}>
                 <Trash size={16} />
                 Remover
