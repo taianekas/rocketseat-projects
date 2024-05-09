@@ -1,9 +1,10 @@
 import {} from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import { Container, CoffeeInfo, TagsContent, Tag } from './styles'
 import { Actions } from '../Actions'
 import { ProductData } from '../../contexts/ShoppingCartContext'
 
-export interface CatalogProps {
+interface CatalogProps {
   data: ProductData
 }
 
@@ -15,14 +16,16 @@ export function Catalog({ data }: CatalogProps) {
       </div>
 
       <TagsContent>
-        <Tag>{data.tag}</Tag>
+        {data.tag.map((item) => (
+          <Tag key={uuidv4()}> {item} </Tag>
+        ))}
       </TagsContent>
 
       <CoffeeInfo>
-        <h1>{data.name}</h1>
-        <p>{data.description}</p>
+        <h1> {data.name} </h1>
+        <p> {data.description} </p>
       </CoffeeInfo>
-      <Actions data={data} action="add" />
+      <Actions action="add" data={data} />
     </Container>
   )
 }
