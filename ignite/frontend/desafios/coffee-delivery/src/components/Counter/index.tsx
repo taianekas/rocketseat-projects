@@ -1,37 +1,39 @@
-import { useContext } from 'react'
+import { useReducer } from 'react'
 import { Minus, Plus } from '@phosphor-icons/react'
 import { Button, Container } from './styles'
+import { reducerCount } from '../../reducer/reducer'
 import {
-  ProductData,
-  ShoppingCartContext,
-} from '../../contexts/ShoppingCartContext'
+  decrementCounterAction,
+  incrementCounterAction,
+} from '../../reducer/actions'
 
-interface CounterProps {
-  data: ProductData
-}
+export function Counter() {
+  const [countState, dispatch] = useReducer(reducerCount, { count: 1 })
 
-export function Counter({ data }: CounterProps) {
-  const { productCounts, decrementCount, incrementCount } =
-    useContext(ShoppingCartContext)
-
-  const count = productCounts[data.id] ?? 0
+  function updateCount(type: 'increment' | 'decrement') {
+    if (type === 'increment') {
+      dispatch(incrementCounterAction())
+    } else {
+      dispatch(decrementCounterAction())
+    }
+  }
 
   return (
     <>
       <Container>
         <Button
           onClick={() => {
-            decrementCount(data.id)
+            updateCount('decrement')
           }}
         >
           <Minus weight="bold" />
         </Button>
 
-        <input type="number" value={count} readOnly />
+        <input type="number" value={countState.count} readOnly />
 
         <Button
           onClick={() => {
-            incrementCount(data.id)
+            updateCount('increment')
           }}
         >
           <Plus weight="bold" />
