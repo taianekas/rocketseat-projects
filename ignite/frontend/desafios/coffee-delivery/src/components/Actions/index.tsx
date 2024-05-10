@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useContext, useReducer } from 'react'
 import {
   Container,
   AddToCart,
@@ -10,12 +10,12 @@ import {
   Button,
 } from './styled'
 import { ShoppingCartSimple, Trash, Minus, Plus } from '@phosphor-icons/react'
-import { ProductData } from '../../contexts/ShoppingCartContext'
+import { ProductData, reducerCount } from '../../reducer/reducer'
 import {
   decrementCounterAction,
   incrementCounterAction,
 } from '../../reducer/actions'
-import { reducerCount } from '../../reducer/reducer'
+import { CartContext } from '../../contexts/ShoppingCartContext'
 
 interface ActionsProps {
   action: 'add' | 'delete'
@@ -23,7 +23,8 @@ interface ActionsProps {
 }
 
 export function Actions({ action, data }: ActionsProps) {
-  const [countState, dispatch] = useReducer(reducerCount, { count: 1 })
+  const [countState, dispatch] = useReducer(reducerCount, { count: 0 })
+  const { updateCart } = useContext(CartContext)
 
   function updateCount(type: 'increment' | 'decrement') {
     if (type === 'increment') {
@@ -33,14 +34,41 @@ export function Actions({ action, data }: ActionsProps) {
     }
   }
 
+  function handleAddProductInCart(id: string, data: ProductData) {
+    if (id === data.id) {
+      data.count = countState.count
+      updateCart({ ...data }, 'add')
+    }
+  }
+
+  function coinFormat(value: number) {
+    const twoDecimalsPlaces = Math.round(value * 100) / 100
+
+    const valueInString = twoDecimalsPlaces.toFixed(2)
+
+    const [integerPart, decimalPart] = valueInString.split('.')
+
+    const integerPartFormatada = integerPart.replace(
+      /\B(?=(\d{3})+(?!\d))/g,
+      '.',
+    )
+
+    return `${integerPartFormatada},${decimalPart}`
+  }
+
   const willBeDisplayed = action
+  const price =
+    countState.count >= 1
+      ? coinFormat(countState.count * data.price)
+      : coinFormat(data.price)
+
   return (
     <>
       <Container>
         {willBeDisplayed === 'add' ? (
           <AddToCart>
             <p>
-              R$ <strong> {data.price} </strong>
+              R$ <strong> {price} </strong>
             </p>
 
             <Counter>
@@ -63,7 +91,11 @@ export function Actions({ action, data }: ActionsProps) {
               </Button>
             </Counter>
 
-            <ButtonAddItem onClick={() => {}}>
+            <ButtonAddItem
+              onClick={() => {
+                handleAddProductInCart(data.id, { ...data })
+              }}
+            >
               <ShoppingCartSimple weight={'fill'} size={22} />
             </ButtonAddItem>
           </AddToCart>
@@ -72,7 +104,7 @@ export function Actions({ action, data }: ActionsProps) {
             <img src={''} alt="" />
 
             <Details className="dois">
-              <p>Expresso</p>
+              <p>{data.name}</p>
 
               <Counter>
                 <Button
@@ -83,7 +115,7 @@ export function Actions({ action, data }: ActionsProps) {
                   <Minus weight="bold" />
                 </Button>
 
-                <input type="number" value={countState.count} readOnly />
+                <input type="number" value={3} readOnly />
 
                 <Button
                   onClick={() => {
@@ -101,7 +133,7 @@ export function Actions({ action, data }: ActionsProps) {
             </Details>
 
             <p>
-              <strong>{`R$ $`}</strong>
+              <strong>{`R$ ${price}`}</strong>
             </p>
           </RemoveFromCart>
         )}
