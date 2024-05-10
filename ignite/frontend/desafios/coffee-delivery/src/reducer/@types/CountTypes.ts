@@ -1,4 +1,7 @@
-import { ActionsTypeCount } from '../actions'
+export enum ActionsTypeCount {
+  INCREMENT_QUANTITY = 'INCREMENT_QUANTITY',
+  DECREMENT_QUANTITY = 'DECREMENT_QUANTITY',
+}
 
 export interface ActionCount {
   type: ActionsTypeCount // Aqui você define que todas as ações têm uma propriedade 'type'
