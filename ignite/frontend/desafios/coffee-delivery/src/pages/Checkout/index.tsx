@@ -11,10 +11,10 @@ import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
 import { AddressForm } from '../../components/AddressForm'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/ShoppingCartContext'
-import { ProductCard } from '../../components/ProductCard'
+import { Actions } from '../../components/Actions'
 
 export function Checkout() {
-  const { cartState } = useContext(CartContext)
+  const { cartState, cartListLength, coinFormat } = useContext(CartContext)
 
   return (
     <Container>
@@ -22,14 +22,14 @@ export function Checkout() {
 
       <CheckoutContent>
         {cartState.product.map((item) => (
-          <ProductCard key={item.id} data={{ ...item }} />
+          <Actions key={item.id} data={{ ...item }} action="delete" />
         ))}
         <PurchaseDetails>
           <p>
-            Total de itens<span>R$ {}</span>
+            Total de itens<span>{cartListLength}</span>
           </p>
           <p>
-            Entrega<span>R$ 3,50</span>
+            Entrega<span>R$ {coinFormat(cartListLength * 1.5)}</span>
           </p>
           <h3>
             Total<span>R$ 33,20</span>
