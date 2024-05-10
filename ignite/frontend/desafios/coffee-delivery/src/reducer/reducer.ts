@@ -31,9 +31,14 @@ export function reducerCart(state: CartState, action: ActionCart) {
     }
 
     case ActionsTypeCart.REMOVE_FROM_CART: {
-      return produce(state, (draft) => {
-        draft.product.filter((item) => item.id !== state.productId)
-      })
+      const updatedProducts = state.product.filter(
+        (item) => item.id !== action.payload.productId,
+      )
+
+      return {
+        ...state,
+        product: updatedProducts,
+      }
     }
     default:
       return state
