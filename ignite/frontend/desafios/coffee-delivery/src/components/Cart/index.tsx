@@ -1,9 +1,13 @@
-import {} from 'react'
+import { useContext } from 'react'
 import { ShoppingCart } from '@phosphor-icons/react'
 import { Container, Count } from './styles'
+import { CartContext } from '../../contexts/ShoppingCartContext'
 
 export function Cart() {
-  const count: number = 1
+  const { cartState } = useContext(CartContext)
+
+  const cartProductLength = cartState.product.length
+  const count: number = cartProductLength > 0 ? cartProductLength : 0
   const purchasesInCart = count > 0 ? 'visible' : 'hidden'
 
   return (
