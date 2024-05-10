@@ -24,7 +24,7 @@ interface ActionsProps {
 
 export function Actions({ action, data }: ActionsProps) {
   const [countState, dispatch] = useReducer(reducerCount, { count: 0 })
-  const { updateCart } = useContext(CartContext)
+  const { addToCart, removeFromCart, coinFormat } = useContext(CartContext)
 
   function updateCount(type: 'increment' | 'decrement') {
     if (type === 'increment') {
@@ -34,32 +34,23 @@ export function Actions({ action, data }: ActionsProps) {
     }
   }
 
-  function handleAddProductInCart(id: string, data: ProductData) {
+  function handleAddToCart(id: string, data: ProductData) {
     if (id === data.id) {
       data.count = countState.count
-      updateCart({ ...data }, 'add')
+      addToCart({ ...data })
     }
-  }
-
-  function coinFormat(value: number) {
-    const twoDecimalsPlaces = Math.round(value * 100) / 100
-
-    const valueInString = twoDecimalsPlaces.toFixed(2)
-
-    const [integerPart, decimalPart] = valueInString.split('.')
-
-    const integerPartFormatada = integerPart.replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      '.',
-    )
-
-    return `${integerPartFormatada},${decimalPart}`
   }
 
   const willBeDisplayed = action
   const price =
     countState.count >= 1
       ? coinFormat(countState.count * data.price)
+      : coinFormat(data.price)
+
+  const newCount = data.count + countState.count
+  const newPrice =
+    countState.count >= 1
+      ? coinFormat(newCount + data.price)
       : coinFormat(data.price)
 
   return (
@@ -93,7 +84,7 @@ export function Actions({ action, data }: ActionsProps) {
 
             <ButtonAddItem
               onClick={() => {
-                handleAddProductInCart(data.id, { ...data })
+                handleAddToCart(data.id, { ...data })
               }}
             >
               <ShoppingCartSimple weight={'fill'} size={22} />
@@ -101,7 +92,7 @@ export function Actions({ action, data }: ActionsProps) {
           </AddToCart>
         ) : (
           <RemoveFromCart className="remove">
-            <img src={''} alt="" />
+            <img src={data.image} alt="" />
 
             <Details className="dois">
               <p>{data.name}</p>
@@ -115,7 +106,7 @@ export function Actions({ action, data }: ActionsProps) {
                   <Minus weight="bold" />
                 </Button>
 
-                <input type="number" value={3} readOnly />
+                <input type="number" value={countState.count} readOnly />
 
                 <Button
                   onClick={() => {
@@ -126,14 +117,14 @@ export function Actions({ action, data }: ActionsProps) {
                 </Button>
               </Counter>
 
-              <ButtonRemoveItem onClick={() => {}}>
+              <ButtonRemoveItem onClick={() => removeFromCart(data.id)}>
                 <Trash size={16} />
                 Remover
               </ButtonRemoveItem>
             </Details>
 
             <p>
-              <strong>{`R$ ${price}`}</strong>
+              <strong>{`R$ ${newPrice}`}</strong>
             </p>
           </RemoveFromCart>
         )}

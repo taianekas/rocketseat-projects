@@ -56,7 +56,6 @@ export function Home() {
           <Catalog key={item.id} data={{ ...item }} />
         ))}
       </Menu>
-      <pre>{JSON.stringify(ListProducts, null, 2)}</pre>
     </Container>
   )
 }
