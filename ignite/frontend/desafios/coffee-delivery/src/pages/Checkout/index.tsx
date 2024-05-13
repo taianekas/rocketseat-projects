@@ -10,7 +10,7 @@ import {
 import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
 import { AddressForm } from '../../components/AddressForm'
 import { useContext } from 'react'
-import { CartContext } from '../../contexts/ShoppingCartContext'
+import { CartContext } from '../../contexts/CartProvider'
 import { Actions } from '../../components/Actions'
 
 export function Checkout() {
@@ -18,6 +18,7 @@ export function Checkout() {
 
   return (
     <Container>
+      <pre>{JSON.stringify(cartState.product, null, 2)}</pre>
       <AddressForm />
 
       <CheckoutContent>

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { ShoppingCart } from '@phosphor-icons/react'
 import { Container, Count } from './styles'
-import { CartContext } from '../../contexts/ShoppingCartContext'
+import { CartContext } from '../../contexts/CartProvider'
 
 export function Cart() {
   const { cartState } = useContext(CartContext)
