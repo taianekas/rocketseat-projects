@@ -17,13 +17,15 @@ export function Checkout() {
   const { cartState, cartListLength, coinFormat } = useContext(CartContext)
   const [totalPrice, setTotalPrice] = useState(0)
 
+  const shippingCost = 3.5 * cartListLength
+
   useEffect(() => {
     let total = 0
     cartState.product.forEach((item) => {
       total += item.price * item.count
     })
     setTotalPrice(total)
-  }, [cartState])
+  }, [cartState, shippingCost])
 
   return (
     <Container>
@@ -42,10 +44,10 @@ export function Checkout() {
             Total de itens<span>{cartListLength}</span>
           </p>
           <p>
-            Entrega<span>R$ {coinFormat(cartListLength * 1.5)}</span>
+            Entrega<span>R$ {coinFormat(shippingCost)}</span>
           </p>
           <h3>
-            Total<span>R$ {coinFormat(totalPrice)}</span>
+            Total<span>R$ {coinFormat(totalPrice + shippingCost)}</span>
           </h3>
         </PurchaseDetails>
         <ConfirmOrder>Confirmar Pedido</ConfirmOrder>
