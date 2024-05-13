@@ -18,7 +18,6 @@ export function Checkout() {
 
   return (
     <Container>
-      <pre>{JSON.stringify(cartState.product, null, 2)}</pre>
       <AddressForm />
 
       <CheckoutContent>

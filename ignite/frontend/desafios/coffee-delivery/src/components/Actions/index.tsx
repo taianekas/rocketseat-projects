@@ -24,8 +24,7 @@ interface ActionsProps {
 
 export function Actions({ action, data }: ActionsProps) {
   const [countState, dispatch] = useReducer(reducerCount, { count: data.count })
-  const { addToCart, removeFromCart, coinFormat, cartState } =
-    useContext(CartContext)
+  const { addToCart, removeFromCart, coinFormat } = useContext(CartContext)
 
   function updateCount(type: 'increment' | 'decrement') {
     if (type === 'increment') {
@@ -42,7 +41,6 @@ export function Actions({ action, data }: ActionsProps) {
     }
   }
 
-  console.log(cartState.product.map((item) => item.count))
   const willBeDisplayed = action
   const price =
     countState.count >= 1
