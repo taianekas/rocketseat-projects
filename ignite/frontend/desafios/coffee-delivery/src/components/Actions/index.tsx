@@ -25,27 +25,51 @@ interface ActionsProps {
 export function Actions({ action, data }: ActionsProps) {
   const [countState, dispatch] = useReducer(reducerCount, { count: data.count })
   const { addToCart, removeFromCart, coinFormat } = useContext(CartContext)
+  const willBeDisplayed = action
 
-  function updateCount(type: 'increment' | 'decrement') {
-    if (type === 'increment') {
-      dispatch(incrementCounterAction())
-    } else {
-      dispatch(decrementCounterAction())
-    }
+  const price =
+    countState.count >= 1 ? countState.count * data.price : data.price
+
+  function countIncrement() {
+    dispatch(incrementCounterAction())
+  }
+
+  function countDecrement() {
+    dispatch(decrementCounterAction())
   }
 
   function handleAddToCart(id: string, data: ProductData) {
     if (id === data.id) {
       data.count = countState.count
+      data.totalPrice = data.count * data.price
+
       addToCart({ ...data })
     }
   }
 
-  const willBeDisplayed = action
-  const price =
-    countState.count >= 1
-      ? coinFormat(countState.count * data.price)
-      : coinFormat(data.price)
+  function countIncrementInCart(id: string, data: ProductData) {
+    removeFromCart(id)
+    dispatch(incrementCounterAction())
+
+    if (id === data.id) {
+      data.count = countState.count + 1
+      data.totalPrice = data.count * data.price
+
+      addToCart({ ...data })
+    }
+  }
+
+  function countDecrementInCart(id: string, data: ProductData) {
+    removeFromCart(id)
+    dispatch(decrementCounterAction())
+
+    if (id === data.id) {
+      data.count = countState.count - 1 <= 1 ? 1 : countState.count - 1
+      data.totalPrice = data.count * data.price
+
+      addToCart({ ...data })
+    }
+  }
 
   return (
     <>
@@ -53,13 +77,13 @@ export function Actions({ action, data }: ActionsProps) {
         {willBeDisplayed === 'add' ? (
           <AddToCart>
             <p>
-              R$ <strong> {price} </strong>
+              R$ <strong> {coinFormat(price)} </strong>
             </p>
 
             <Counter>
               <Button
                 onClick={() => {
-                  updateCount('decrement')
+                  countDecrement()
                 }}
               >
                 <Minus weight="bold" />
@@ -69,7 +93,7 @@ export function Actions({ action, data }: ActionsProps) {
 
               <Button
                 onClick={() => {
-                  updateCount('increment')
+                  countIncrement()
                 }}
               >
                 <Plus weight="bold" />
@@ -78,7 +102,7 @@ export function Actions({ action, data }: ActionsProps) {
 
             <ButtonAddItem
               onClick={() => {
-                handleAddToCart(data.id, { ...data })
+                handleAddToCart(data.id, data)
               }}
             >
               <ShoppingCartSimple weight={'fill'} size={22} />
@@ -94,7 +118,7 @@ export function Actions({ action, data }: ActionsProps) {
               <Counter>
                 <Button
                   onClick={() => {
-                    updateCount('decrement')
+                    countDecrementInCart(data.id, data)
                   }}
                 >
                   <Minus weight="bold" />
@@ -104,7 +128,7 @@ export function Actions({ action, data }: ActionsProps) {
 
                 <Button
                   onClick={() => {
-                    updateCount('increment')
+                    countIncrementInCart(data.id, data)
                   }}
                 >
                   <Plus weight="bold" />
@@ -118,7 +142,7 @@ export function Actions({ action, data }: ActionsProps) {
             </Details>
 
             <p>
-              <strong>{`R$ ${price}`}</strong>
+              <strong>{`R$ ${coinFormat(price)}`}</strong>
             </p>
           </RemoveFromCart>
         )}
