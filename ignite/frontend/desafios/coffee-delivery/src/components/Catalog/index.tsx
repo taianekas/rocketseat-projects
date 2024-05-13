@@ -2,7 +2,7 @@ import {} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Container, CoffeeInfo, TagsContent, Tag } from './styles'
 import { Actions } from '../Actions'
-import { ProductData } from '../../contexts/ShoppingCartContext'
+import { ProductData } from '../../contexts/CartProvider'
 
 interface CatalogProps {
   data: ProductData

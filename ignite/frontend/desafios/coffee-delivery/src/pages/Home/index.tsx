@@ -3,7 +3,7 @@ import imgIntro from '../../assets/coffee-intro.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
 import { Catalog } from '../../components/Catalog'
 import { useContext } from 'react'
-import { CartContext } from '../../contexts/ShoppingCartContext'
+import { CartContext } from '../../contexts/CartProvider'
 
 export function Home() {
   const { ListProducts } = useContext(CartContext)
