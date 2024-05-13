@@ -19,14 +19,12 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextTypes)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const initialState: CartState = {
-    product: [],
-    productId: '',
-  }
-
   const [cartState, dispatch] = useReducer(
     reducerCart,
-    initialState,
+    {
+      product: [],
+      productId: '',
+    },
     (initialState) => {
       const storedStateAsJSON = localStorage.getItem(
         '@ignite-coffee-delivery: cycles-state-1.0.0',
@@ -58,7 +56,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const ListProducts: ProductData[] = ProductsList.map((items) => ({
     ...items,
     tag: items.tag.map((tag) => tag.title),
-    count: 0,
+    count: 1,
   }))
 
   function addToCart(data: ProductData) {

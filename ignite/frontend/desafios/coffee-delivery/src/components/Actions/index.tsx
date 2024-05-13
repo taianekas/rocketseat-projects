@@ -15,7 +15,7 @@ import {
   decrementCounterAction,
   incrementCounterAction,
 } from '../../reducer/actions'
-import { CartContext } from '../../contexts/ShoppingCartContext'
+import { CartContext } from '../../contexts/CartProvider'
 
 interface ActionsProps {
   action: 'add' | 'delete'
@@ -23,7 +23,7 @@ interface ActionsProps {
 }
 
 export function Actions({ action, data }: ActionsProps) {
-  const [countState, dispatch] = useReducer(reducerCount, { count: 0 })
+  const [countState, dispatch] = useReducer(reducerCount, { count: data.count })
   const { addToCart, removeFromCart, coinFormat } = useContext(CartContext)
 
   function updateCount(type: 'increment' | 'decrement') {
@@ -45,12 +45,6 @@ export function Actions({ action, data }: ActionsProps) {
   const price =
     countState.count >= 1
       ? coinFormat(countState.count * data.price)
-      : coinFormat(data.price)
-
-  const newCount = data.count + countState.count
-  const newPrice =
-    countState.count >= 1
-      ? coinFormat(newCount + data.price)
       : coinFormat(data.price)
 
   return (
@@ -124,7 +118,7 @@ export function Actions({ action, data }: ActionsProps) {
             </Details>
 
             <p>
-              <strong>{`R$ ${newPrice}`}</strong>
+              <strong>{`R$ ${price}`}</strong>
             </p>
           </RemoveFromCart>
         )}
