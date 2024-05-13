@@ -63,11 +63,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     const newProduct: ProductData = {
       id: data.id,
       name: data.name,
-      price: data.price * data.count,
+      price: data.price,
       image: data.image,
       count: data.count,
       tag: null,
       description: data.description,
+      totalPrice: data.count * data.price,
     }
 
     dispatch(addProductInCart(newProduct))

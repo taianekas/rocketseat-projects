@@ -11,6 +11,7 @@ export interface ProductData {
   price: number
   image: string
   count: number
+  totalPrice?: number
 }
 
 export interface CartState {

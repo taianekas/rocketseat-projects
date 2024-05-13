@@ -9,21 +9,34 @@ import {
 } from './styled'
 import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
 import { AddressForm } from '../../components/AddressForm'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../contexts/CartProvider'
 import { Actions } from '../../components/Actions'
 
 export function Checkout() {
   const { cartState, cartListLength, coinFormat } = useContext(CartContext)
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  useEffect(() => {
+    let total = 0
+    cartState.product.forEach((item) => {
+      total += item.price * item.count
+    })
+    setTotalPrice(total)
+  }, [cartState])
 
   return (
     <Container>
+      <pre>{JSON.stringify(cartState, null, 2)}</pre>
       <AddressForm />
 
       <CheckoutContent>
-        {cartState.product.map((item) => (
-          <Actions key={item.id} data={{ ...item }} action="delete" />
-        ))}
+        {cartState.product
+          .slice()
+          .sort((a, b) => a.id.localeCompare(b.name))
+          .map((item) => (
+            <Actions key={item.id} data={{ ...item }} action="delete" />
+          ))}
         <PurchaseDetails>
           <p>
             Total de itens<span>{cartListLength}</span>
@@ -32,7 +45,7 @@ export function Checkout() {
             Entrega<span>R$ {coinFormat(cartListLength * 1.5)}</span>
           </p>
           <h3>
-            Total<span>R$ 33,20</span>
+            Total<span>R$ {coinFormat(totalPrice)}</span>
           </h3>
         </PurchaseDetails>
         <ConfirmOrder>Confirmar Pedido</ConfirmOrder>
