@@ -1,15 +1,23 @@
 import { ReactNode, createContext, useEffect, useReducer } from 'react'
-import { CartState, ProductData, reducerCart } from '../reducer/reducer'
+import { CartState, Order, ProductData, reducerCart } from '../reducer/reducer'
 import { ProductsList } from '../data'
-import { addProductInCart, removeProductFromCart } from '../reducer/actions'
+import {
+  addProductInCart,
+  checkoutCart,
+  removeProductFromCart,
+} from '../reducer/actions'
+import { OrderInfo } from '../pages/Checkout'
+import { useNavigate } from 'react-router-dom'
 
 interface CartContextTypes {
+  orders: Order[]
   cartListLength: number
   ListProducts: ProductData[]
   cartState: CartState
   removeFromCart: (id: string) => void
   addToCart: (data: ProductData) => void
   coinFormat: (value: number) => string
+  checkout: (order: OrderInfo) => void
 }
 
 interface CartContextProviderProps {
@@ -19,12 +27,16 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextTypes)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const initialState: CartState = {
+    product: [],
+    cart: [],
+    orders: [],
+    productId: '',
+  }
+
   const [cartState, dispatch] = useReducer(
     reducerCart,
-    {
-      product: [],
-      productId: '',
-    },
+    initialState,
     (initialState) => {
       const storedStateAsJSON = localStorage.getItem(
         '@ignite-coffee-delivery: cycles-state-1.0.0',
@@ -37,6 +49,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       return initialState
     },
   )
+
+  const { orders } = cartState
+  const navigate = useNavigate()
 
   function coinFormat(value: number) {
     const twoDecimalsPlaces = Math.round(value * 100) / 100
@@ -78,6 +93,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatch(removeProductFromCart(productId))
   }
 
+  function checkout(order: OrderInfo) {
+    dispatch(checkoutCart(order, navigate))
+  }
+
   const cartListLength = cartState.product.length
 
   useEffect(() => {
@@ -92,12 +111,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   return (
     <CartContext.Provider
       value={{
+        checkout,
         cartListLength,
         ListProducts,
         cartState,
         coinFormat,
         addToCart,
         removeFromCart,
+        orders,
       }}
     >
       {children}
