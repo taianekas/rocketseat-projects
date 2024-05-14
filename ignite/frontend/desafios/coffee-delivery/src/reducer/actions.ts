@@ -1,5 +1,8 @@
+import { NavigateFunction } from 'react-router-dom'
+import { OrderInfo } from '../pages/Checkout'
 import {
   addProductInCartActionType,
+  checkoutCartActionType,
   removeProductFromActionType,
 } from './@types/CartTypes'
 import { ProductData } from './reducer'
@@ -7,6 +10,7 @@ import { ProductData } from './reducer'
 export enum ActionsTypeCart {
   ADD_TO_CART = 'ADD_TO_CART',
   REMOVE_FROM_CART = 'REMOVE_FROM_CART',
+  CHECKOUT_CART = 'CHECKOUT_CART',
 }
 
 export enum ActionsTypeCount {
@@ -41,5 +45,15 @@ export function removeProductFromCart(
   return {
     type: ActionsTypeCart.REMOVE_FROM_CART,
     payload: { productId },
+  }
+}
+
+export function checkoutCart(
+  order: OrderInfo,
+  callback: NavigateFunction,
+): checkoutCartActionType {
+  return {
+    type: ActionsTypeCart.CHECKOUT_CART,
+    payload: { order, callback },
   }
 }
