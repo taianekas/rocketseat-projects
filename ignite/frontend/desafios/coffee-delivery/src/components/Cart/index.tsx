@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { ShoppingCart } from '@phosphor-icons/react'
 import { Container, Count } from './styles'
 import { CartContext } from '../../contexts/CartProvider'
+import { Link } from 'react-router-dom'
 
 export function Cart() {
   const { cartState } = useContext(CartContext)
@@ -14,7 +15,9 @@ export function Cart() {
     <Container>
       <ShoppingCart size={22} color="#C47F17" weight="fill" />
       <Count>
-        <p className={`count-${purchasesInCart}`}>{count}</p>
+        <Link to={'/checkout'}>
+          <p className={`count-${purchasesInCart}`}>{count}</p>
+        </Link>
       </Count>
     </Container>
   )
