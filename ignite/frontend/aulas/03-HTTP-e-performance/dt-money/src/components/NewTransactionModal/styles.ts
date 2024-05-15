@@ -24,6 +24,7 @@ export const Content = styled(Dialog.Content)`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    
     input {
       border-radius: 6px;
       border: 0;
@@ -34,6 +35,7 @@ export const Content = styled(Dialog.Content)`
         color: ${props => props.theme["gray-500"]};
       }
     }
+
     button[type="submit"] {
       height: 50px;
       border: 0;
@@ -44,7 +46,12 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       margin-top: 1.25rem;
       cursor: pointer;
-      &:hover {
+
+      &:disabled {
+      opacity: 0.7;
+     }
+
+      &:not(:disabled):hover  {
         background: ${props => props.theme["green-700"]};
         transition: background-color 0.2s;
       }
@@ -85,6 +92,7 @@ export const TransactionTypeButton = styled(RadioGroup.Item)<TransactionTypeButt
   cursor: pointer;
   border: 0;
   color: ${props => props.theme["gray-300"]};
+
   svg {
     color: ${props => props.variant === 'income' ? props.theme["green-300"] : props.theme["red-300"]};
   }
