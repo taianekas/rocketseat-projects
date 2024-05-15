@@ -31,6 +31,14 @@
       "category": "Alimentação",
       "type": "outcome",
       "createdAt": "2024-05-15T20:56:11.402Z"
+    },
+    {
+      "id": "b73a",
+      "description": "Iorgute de banana",
+      "price": 2,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2024-05-15T21:29:55.243Z"
     }
   ]
 }
