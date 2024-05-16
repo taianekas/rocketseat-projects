@@ -17,6 +17,17 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 0 2px ${(props) => props.theme['base-border']};
   }
 
+  ::-webkit-scrollbar-thumb {
+    background: transparent; /* Cor do thumb (alça) do scrollbar */
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Cor do fundo do scrollbar */
+  }
+  ::-webkit-scrollbar {
+    width: 0px; /* Largura do scrollbar */
+    display: none;
+  }
+  
   body {
     background-color: ${(props) => props.theme['base-background']};
   }

@@ -1,11 +1,18 @@
+import { PostCard } from './Components/PostCard'
 import { Profile } from './Components/Profile'
-import { Container } from './styles'
+import { SearchForm } from './Components/SearchForm'
+import { Container, PostContainer } from './styles'
 
 export function Home() {
   return (
     <Container>
       <Profile />
-      <div>Hello word! ♡⸜(˶˃ ᵕ ˂˶)⸝♡ </div>
+      <SearchForm />
+
+      <PostContainer>
+        <PostCard />
+        <PostCard />
+      </PostContainer>
     </Container>
   )
 }
