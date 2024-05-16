@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid'
 export interface PostProps {
   user: string
   length: number
-  numberPost: number
+  number: number
   title: string
   body: string
   created_at: string
