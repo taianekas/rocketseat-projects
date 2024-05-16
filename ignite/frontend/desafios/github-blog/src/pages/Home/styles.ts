@@ -3,7 +3,11 @@ import styled from 'styled-components'
 export const Container = styled.main`
   width: 86.4rem;
   height: 100vh;
-  margin: 18.3rem auto 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
 `
 
 export const PostContainer = styled.div`

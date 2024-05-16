@@ -6,30 +6,10 @@ import { Container, PostContainer } from './styles'
 export function Home() {
   return (
     <Container>
-      <div className="content">
-        <Profile />
-        <SearchForm />
-      </div>
+      <Profile />
+      <SearchForm />
 
       <PostContainer>
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
         <PostCard />
         <PostCard />
       </PostContainer>
