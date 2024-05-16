@@ -15,15 +15,19 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/styled-components": "^5.1.34",
+    "axios": "^1.6.8",
+    "date-fns": "^3.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/uuid": "^9.0.8",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react-refresh": "^0.4.7",

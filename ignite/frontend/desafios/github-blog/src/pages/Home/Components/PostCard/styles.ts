@@ -15,7 +15,7 @@ export const Container = styled.a`
 
   .description {
     display: -webkit-box; /* Define o elemento como um bloco flexível */
-    -webkit-line-clamp: 5; /* Define o número máximo de linhas que o texto pode ocupar */
+    -webkit-line-clamp: 4; /* Define o número máximo de linhas que o texto pode ocupar */
     -webkit-box-orient: vertical; /* Define a orientação das caixas flexíveis como vertical */
     margin: 2rem 0 0;
     height: 12rem;
