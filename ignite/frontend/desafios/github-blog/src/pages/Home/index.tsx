@@ -30,7 +30,7 @@ export function Home() {
     const response = await api.get<SearchPostsProps>('search/issues', {
       params: {
         q: query ? query + '%20' : '',
-        repo: 'andreviapiana/github-blog',
+        repo: 'taianekarine/teste',
       },
     })
 
