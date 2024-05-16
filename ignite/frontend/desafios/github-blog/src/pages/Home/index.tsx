@@ -24,6 +24,8 @@ interface SearchPostsProps {
 export function Home() {
   const [posts, setPosts] = useState<PostProps[]>([])
 
+  const postsLength = posts.length
+
   const fetchPosts = useCallback(async (query?: string) => {
     const response = await api.get<SearchPostsProps>('search/issues', {
       params: {
@@ -35,6 +37,13 @@ export function Home() {
     setPosts(response.data.items)
   }, [])
 
+  let numberOfPostsText: string
+  if (postsLength > 1) {
+    numberOfPostsText = 'publicações'
+  } else {
+    numberOfPostsText = 'publicação'
+  }
+
   useEffect(() => {
     fetchPosts()
   }, [fetchPosts])
@@ -42,7 +51,11 @@ export function Home() {
   return (
     <Container>
       <Profile />
-      <SearchForm />
+      <SearchForm
+        postsLength={postsLength}
+        fetchPosts={fetchPosts}
+        numberOfPostsText={numberOfPostsText}
+      />
 
       <PostContainer>
         {posts &&
