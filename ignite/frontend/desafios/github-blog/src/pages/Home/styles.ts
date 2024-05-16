@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.main`
   width: 86.4rem;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
