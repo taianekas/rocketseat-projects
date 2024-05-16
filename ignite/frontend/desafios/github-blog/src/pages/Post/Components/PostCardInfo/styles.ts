@@ -12,39 +12,31 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   gap: 3.2rem;
-
   padding: 4rem;
-
-  img {
-    width: 14.8rem;
-    height: 14.8rem;
-    object-fit: cover;
-    border-radius: 8px;
-  }
 `
 
-export const ProfileInfo = styled.div`
+export const CardInfo = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  p {
-    margin: 0 0 2.4rem 0;
+
+  h1 {
+    margin: 2rem 0 0.8rem 0;
+    color: ${(props) => props.theme['base-title']};
+    font-size: 2.4rem;
+    font-weight: 800;
   }
 `
 
-export const Title = styled.div`
+export const Links = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  color: ${(props) => props.theme['base-title']};
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin: 4rem 0 0.8rem 0;
-
   a {
     color: ${(props) => props.theme.blue};
     font-size: 1.2rem;
+    font-weight: 800;
     display: flex;
     gap: 0.8rem;
     text-transform: uppercase;
