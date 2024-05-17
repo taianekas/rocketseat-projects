@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
   testDir: './test',
@@ -11,7 +11,7 @@ export default defineConfig({
     baseURL: 'http://localhost:50789',
   },
   webServer: {
-    command: 'pnpm dev:test',
+    command: 'npm dev:test',
     url: 'http://localhost:50789',
     reuseExistingServer: !process.env.CI,
   },

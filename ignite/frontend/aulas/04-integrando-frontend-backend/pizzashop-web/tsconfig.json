@@ -29,6 +29,6 @@
       ]
     }
   },
-  "include": ["src", "test", "tests/setup.ts"],
+  "include": ["src", "test", "test/setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
