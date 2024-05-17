@@ -15,14 +15,12 @@ export function App() {
           <Helmet titleTemplate="%s | pizza.shop" />
 
           <Toaster richColors />
+          <QueryClientProvider client={queryClient}>
 
-          <RouterProvider router={router} />
+            <RouterProvider router={router} />
+          </QueryClientProvider>
         </ThemeProvider>
       <Toaster richColors />
-      <QueryClientProvider client={queryClient}>
-
-      <RouterProvider router={router} />
-      </QueryClientProvider>
     </HelmetProvider>
   )
 }
