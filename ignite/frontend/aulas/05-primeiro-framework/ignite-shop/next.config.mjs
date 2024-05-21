@@ -1,12 +1,23 @@
-/** @type {import('next').NextConfig} */
+/* @type {import('next').NextConfig} */
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
+  // images: {
+  //   domains: [
+  //     'files.stripe.com',
+  //   ],
+  // },
+
   images: {
-    domains: [
-      'files.stripe.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'files.stripe.com',
+        port: '',
+        pathname: '/links/**',
+      },
     ],
   },
 }
