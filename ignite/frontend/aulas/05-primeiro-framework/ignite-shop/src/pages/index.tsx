@@ -4,6 +4,7 @@ import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import { stripe } from "../lib/stripe"
 import { GetStaticProps } from "next"
+import Head from "next/head"
 
 import Stripe from "stripe"
 import Link from "next/link"
@@ -26,7 +27,12 @@ export default function Home({ products }: HomeProps) {
   });
 
   return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
+      
+      <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map(product => {
         return (
           <Link href={`/product/${product.id}`} key={product.id} prefetch={false}>
@@ -42,6 +48,8 @@ export default function Home({ products }: HomeProps) {
         )
       })}
     </HomeContainer>
+    </>
+
   )
 }
 
