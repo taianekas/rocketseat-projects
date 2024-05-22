@@ -12,10 +12,11 @@ import { useRouter } from 'next/router'
 import { ArrowRight } from 'phosphor-react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { api } from '@/lib/axios'
-import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
-import { getWeekDays } from '@/utils/get-week-days'
+import { api } from '../../../lib/axios'
+import { convertTimeStringToMinutes } from '../../../utils/convert-time-string-to-minutes'
+import { getWeekDays } from '../../../utils/get-week-days'
 import { Container, Header } from '../styles'
+
 import {
   FormError,
   IntervalBox,
@@ -24,6 +25,7 @@ import {
   IntervalInputs,
   IntervalItem,
 } from './styles'
+
 const timeIntervalsFormSchema = z.object({
   intervals: z
     .array(
@@ -61,8 +63,10 @@ const timeIntervalsFormSchema = z.object({
       },
     ),
 })
+
 type TimeIntervalsFormInput = z.input<typeof timeIntervalsFormSchema>
 type TimeIntervalsFormOutput = z.output<typeof timeIntervalsFormSchema>
+
 export default function TimeIntervals() {
   const {
     register,
@@ -84,18 +88,25 @@ export default function TimeIntervals() {
       ],
     },
   })
+
   const router = useRouter()
+
   const weekDays = getWeekDays()
+
   const { fields } = useFieldArray({
     control,
     name: 'intervals',
   })
+
   const intervals = watch('intervals')
+
   async function handleSetTimeIntervals(data: any) {
     const { intervals } = data as TimeIntervalsFormOutput
+
     await api.post('/users/time-intervals', {
       intervals,
     })
+
     await router.push('/register/update-profile')
   }
 

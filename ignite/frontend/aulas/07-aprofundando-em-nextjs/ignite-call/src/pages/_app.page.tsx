@@ -1,7 +1,8 @@
+import '../lib/dayjs'
+
 import type { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
-import { globalStyles } from '@/styles/global'
-import '../lib/dayjs'
+import { globalStyles } from '../styles/global'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from '../lib/react-query'
 import { DefaultSeo } from 'next-seo'
@@ -23,6 +24,7 @@ export default function App({
             siteName: 'Ignite Call',
           }}
         />
+
         <Component {...pageProps} />
       </SessionProvider>
     </QueryClientProvider>

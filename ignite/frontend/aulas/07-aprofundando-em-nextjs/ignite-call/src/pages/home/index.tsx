@@ -2,7 +2,7 @@ import { Heading, Text } from '@ignite-ui/react'
 import Image from 'next/image'
 import { Container, Hero, Preview } from './styles'
 
-import previewImage from '@/assets/app-preview.png'
+import previewImage from '../../assets/app-preview.png'
 import { ClaimUsernameForm } from './components/ClaimUsernameForm'
 import { NextSeo } from 'next-seo'
 

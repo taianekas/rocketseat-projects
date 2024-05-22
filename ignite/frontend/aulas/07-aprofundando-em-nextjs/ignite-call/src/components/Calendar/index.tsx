@@ -1,4 +1,9 @@
+import { useQuery } from '@tanstack/react-query'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
 import { CaretLeft, CaretRight } from 'phosphor-react'
+import { useMemo, useState } from 'react'
+import { api } from '../../lib/axios'
 import { getWeekDays } from '../../utils/get-week-days'
 import {
   CalendarActions,
@@ -9,17 +14,6 @@ import {
   CalendarTitle,
 } from './styles'
 
-import dayjs from 'dayjs'
-import { useMemo, useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { useRouter } from 'next/router'
-import { api } from '@/lib/axios'
-
-interface BlockedDates {
-  blockedWeekDays: number[]
-  blockedDates: number[]
-}
-
 interface CalendarWeek {
   week: number
   days: Array<{
@@ -29,6 +23,11 @@ interface CalendarWeek {
 }
 
 type CalendarWeeks = CalendarWeek[]
+
+interface BlockedDates {
+  blockedWeekDays: number[]
+  blockedDates: number[]
+}
 
 interface CalendarProps {
   selectedDate: Date | null
@@ -79,7 +78,6 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
     if (!blockedDates) {
       return []
     }
-
     console.log('calendarWeeks ~ blockedDates', blockedDates)
 
     const daysInMonthArray = Array.from({

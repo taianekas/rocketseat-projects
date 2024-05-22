@@ -1,16 +1,16 @@
-import { Calendar } from '@/components/Calendar'
+import { useQuery } from '@tanstack/react-query'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { Calendar } from '../../../../../components/Calendar'
+import { api } from '../../../../../lib/axios'
 import {
   Container,
   TimePicker,
   TimePickerHeader,
-  TimePickerList,
   TimePickerItem,
+  TimePickerList,
 } from './styles'
-import dayjs from 'dayjs'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { api } from '@/lib/axios'
-import { useQuery } from '@tanstack/react-query'
 
 interface Availability {
   possibleTimes: number[]
@@ -23,6 +23,7 @@ interface CalendarStepProps {
 
 export function CalendarStep({ onSelectDateTime }: CalendarStepProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+
   const router = useRouter()
 
   const isDateSelected = !!selectedDate
