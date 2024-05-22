@@ -38,4 +38,3 @@ next-env.d.ts
 
 *.db
 .env
-.env.example
