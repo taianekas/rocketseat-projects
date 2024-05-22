@@ -1,8 +1,8 @@
-# Projetos Rocketseat
+# Projetos Rocketseat 🚀
 
 Neste repositório, você encontrará projetos desenvolvidos ao longo das trilhas Explorer e Ignite da Rocketseat. Essas trilhas abrangem tanto o desenvolvimento frontend quanto backend, oferecendo uma oportunidade ampla de aprendizado e prática.
 
-## Trilha Explorer
+## - Trilha Explorer
 
 A trilha Explorer da Rocketseat é voltada para quem está começando ou quer aprimorar os conhecimentos essenciais no desenvolvimento web. Ela cobre os seguintes tópicos:
 
@@ -12,7 +12,7 @@ A trilha Explorer da Rocketseat é voltada para quem está começando ou quer ap
 2. **Node.js:** Desenvolvimento de aplicações backend utilizando Node.js.
 3. **React:** Construção de interfaces de usuário com React.
 4. **HTML e CSS:** Básico de HTML e CSS para criação de páginas web.
-5. **Git e GitHub:** Controle de versão e colaboração em equipe com Git.
+5. **Git e GitHub:** Controle de versão e colaboração em equipe com Git.Projetos Rocketseat
 
 ### Projetos:
 
@@ -25,9 +25,9 @@ A trilha Explorer da Rocketseat é voltada para quem está começando ou quer ap
 - **Stage 09:** [Desáfios - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/explorer/frontend/desafios/Stage-09)
 - **...** 
 
-[👩🏼‍🎓 Certificado Explorer](https://app.rocketseat.com.br/certificates/077701a5-be1c-4597-aa46-4e5e23499d53)
+### [👩🏼‍🎓 Certificado Explorer](https://app.rocketseat.com.br/certificates/077701a5-be1c-4597-aa46-4e5e23499d53)
 
-## Trilha Ignite
+## - Trilha Ignite
 
 A trilha Ignite é mais avançada e focada em tecnologias modernas e práticas para desenvolvimento web e mobile.
 
@@ -39,5 +39,29 @@ A trilha Ignite é mais avançada e focada em tecnologias modernas e práticas p
 4. **React Native:** Desenvolvimento de aplicativos mobile com React Native.
 5. **GraphQL:** Uso avançado de GraphQL em aplicações modernas.
 
-### Projetos:
+### Projetos Frontend:
+Projetos desenvolvidos de acordo com os desafio propostos:
+- **To-do List** [Desáfio - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/desafios/to-do-list)
+
+- **Coffee Delivery:** [Desáfio - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/desafios/coffee-delivery)
+
+- **Github Blog:** [Desáfio - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/desafios/github-blog)
+
+Projetos desenvolvidos em aula:
+- **Fundamentos do Reactjs:** [Aula - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/01-fundamentos-reactjs)
+
+- **Aprofundando em Hooks:** [Aula - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/02-aprofundando-em-hooks-reactjs/ignite-timer)
+
+- **HTTP e Performace:** [Aula - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/03-HTTP-e-performance/dt-money)
+
+- **Integrando Frontend - Backend:** [Aula - ReactJs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/04-integrando-frontend-backend/pizzashop-web)
+
+- **Primeiro framework:** [Aula - Nextjs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/05-primeiro-framework)
+
+- **Design System:** [Aula - Design Syteam](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/06-design-systeam)
+
+- **Aprofundando em Next.js:** [Aula - Nextjs](https://github.com/taianekas/rocketseat-projects/tree/main/ignite/frontend/aulas/07-aprofundando-em-nextjs/ignite-call)
+
+### [👩🏼‍🎓 Certificado Especialista em ReactJS]()
+
 
